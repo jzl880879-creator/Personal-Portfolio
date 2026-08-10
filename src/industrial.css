@@ -1,0 +1,112 @@
+.industrial-hero>img,.industrial-hero>video{
+  object-position:center;
+  filter:brightness(.34) saturate(.55) contrast(1.08);
+}
+.industrial-page .selector-slats{
+  width:min(1640px,calc(100vw - 60px));
+}
+.industrial-page .selector-copy{
+  left:20%;
+  right:13%;
+}
+.industrial-page .selector-copy h2{
+  font-size:clamp(25px,1.9vw,36px);
+}
+
+/* Keep the project switcher available while the render wall is being viewed. */
+@media(min-width:701px){
+  .industrial-page .medical-render-viewer,
+  .industrial-page .render-viewer-layout{
+    overflow:visible;
+  }
+  .industrial-page .render-viewer-layout{
+    align-items:start;
+  }
+  .industrial-page .render-project-nav{
+    position:relative;
+    top:auto;
+    align-self:stretch;
+    display:block;
+    height:auto;
+    min-height:100%;
+    max-height:none;
+    padding:0;
+    overflow:visible;
+    border:0;
+  }
+  .industrial-page .industrial-floating-nav__inner{
+    position:absolute;
+    z-index:8;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    height:calc(100vh - 48px);
+    height:calc(100dvh - 48px);
+    min-height:0;
+    padding:0 0 20px;
+    border-bottom:1px solid #ffffff20;
+    background:#040605;
+  }
+  .industrial-page .industrial-floating-nav[data-follow="fixed"] .industrial-floating-nav__inner{
+    position:fixed;
+    top:24px;
+    left:var(--floating-left);
+    width:var(--floating-width);
+  }
+  .industrial-page .industrial-floating-nav[data-follow="end"] .industrial-floating-nav__inner{
+    top:auto;
+    bottom:0;
+  }
+  .industrial-page .industrial-floating-nav__inner>a{
+    margin-top:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    color:#89918b;
+    font-size:10px;
+    letter-spacing:.05em;
+  }
+}
+
+@media(max-width:1100px){
+  .industrial-page .selector-slat{flex-basis:34%}
+  .industrial-page .selector-slats .selector-slat:hover{flex-basis:39%}
+}
+@media(max-width:700px){
+  .industrial-page .selector-slats{width:calc(100vw - 18px)}
+  .industrial-page .render-project-nav{
+    position:sticky;
+    top:0;
+    z-index:10;
+    height:auto;
+    min-height:0;
+    max-height:none;
+    margin-bottom:55px;
+    padding:0;
+    overflow:visible;
+    background:#040605f2;
+    backdrop-filter:blur(12px);
+  }
+  .industrial-page .industrial-floating-nav__inner{
+    position:static;
+    display:block;
+    height:auto;
+    min-height:0;
+    max-height:none;
+    padding:15px 0;
+    overflow:visible;
+    border:0;
+  }
+  .industrial-page .industrial-floating-nav__inner>a{
+    display:none;
+  }
+  .industrial-page .render-project-nav nav{grid-template-columns:repeat(5,1fr)}
+  .industrial-page .selector-copy{left:24px;right:24px}
+  .industrial-page .selector-copy h2{font-size:34px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .industrial-hero{background:#050706 url('/industrial-3c/industrial-02.png') center/cover no-repeat}
+}

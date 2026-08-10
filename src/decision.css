@@ -1,0 +1,498 @@
+.decision-page{background:#070908;color:#edf1ed;min-height:100vh}.decision-shell{width:min(1600px,calc(100vw - 80px));margin-inline:auto}.decision-nav{position:absolute;z-index:10;left:50%;top:0;transform:translateX(-50%);height:88px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff2b;font-size:9px;letter-spacing:.12em}.decision-nav>a{display:flex;align-items:center;gap:9px}.decision-nav>div{display:flex;gap:28px;color:#a5ada7}.decision-nav>span{color:#c6ff4a}.decision-hero{position:relative;height:100svh;min-height:730px;overflow:hidden}.decision-hero>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.42) saturate(.55) contrast(1.1)}.decision-veil{position:absolute;inset:0;background:linear-gradient(90deg,#030504ed,#0305046b 60%,#03050435),linear-gradient(0deg,#030504d9,transparent 54%)}.decision-hero-copy{position:relative;z-index:2;height:100%;padding:18vh 0 9vh;display:grid;grid-template-columns:1fr .72fr;grid-template-rows:auto 1fr;align-items:end}.decision-hero-copy>p{grid-column:1/-1;align-self:start;color:#c6ff4a;font-size:9px;letter-spacing:.18em}.decision-hero h1{margin:0;font-size:clamp(100px,14vw,240px);line-height:.72;letter-spacing:-.085em;font-weight:500}.decision-hero h1 span{color:#c6ff4a}.decision-hero blockquote{margin:0 0 2vh;font-size:clamp(25px,2.6vw,45px);line-height:1.45;letter-spacing:-.04em}.decision-intro{padding:150px 0 180px;display:grid;grid-template-columns:.28fr .75fr 1fr;gap:40px}.decision-intro>span,.decision-section-head>span,.decision-close span{color:#c6ff4a;font-size:9px;letter-spacing:.18em}.decision-intro h2,.decision-section-head h2{margin:0;font-size:clamp(48px,5.6vw,94px);line-height:1.02;letter-spacing:-.06em;font-weight:500}.decision-intro>div{max-width:630px}.decision-intro p{margin:0 0 28px;color:#9aa29c;font-size:15px;line-height:1.9}.decision-section-head{display:grid;grid-template-columns:.28fr 1fr;padding-bottom:55px;border-bottom:1px solid #ffffff21}.decision-section-head h2{max-width:980px}.decision-principles{padding-bottom:170px}.decision-principle-grid{display:grid;grid-template-columns:repeat(4,1fr)}.decision-principle-grid article{min-height:470px;padding:32px 28px;border-right:1px solid #ffffff1d;border-bottom:1px solid #ffffff1d;display:flex;flex-direction:column}.decision-principle-grid article:first-child{border-left:1px solid #ffffff1d}.decision-principle-grid article>div{display:flex;justify-content:space-between;color:#737b75;font-size:8px;letter-spacing:.14em}.decision-principle-grid i{color:#c6ff4a;font-style:normal}.decision-principle-grid h3{margin:auto 0 25px;font-size:clamp(27px,2vw,38px);line-height:1.16;font-weight:500;letter-spacing:-.045em}.decision-principle-grid p{margin:0;color:#929a94;font-size:12px;line-height:1.8}.decision-practice{padding:150px 0 170px;background:#0b0e0c}.decision-case-list{margin-top:45px}.decision-case-list article{display:grid;grid-template-columns:80px 1fr 1fr;gap:38px;align-items:center;min-height:190px;border-bottom:1px solid #ffffff20}.decision-case-list>article>span{color:#c6ff4a;font-size:10px}.decision-case-list article>div p{color:#7f8881;font-size:9px;letter-spacing:.15em}.decision-case-list h3{margin:15px 0 0;font-size:clamp(28px,3vw,48px);line-height:1.15;font-weight:500;letter-spacing:-.04em}.decision-case-list strong{color:#9aa29c;font-size:13px;line-height:1.85;font-weight:400}.decision-tradeoff{padding:160px 0 180px}.decision-matrix{display:grid;grid-template-columns:repeat(4,1fr);margin:70px 0 120px;border:1px solid #ffffff1f}.decision-matrix>div{min-height:255px;padding:28px;border-right:1px solid #ffffff1f}.decision-matrix>div:last-child{border-right:0}.decision-matrix i{color:#c6ff4a;font-style:normal;font-size:9px}.decision-matrix h3{margin:75px 0 20px;font-size:27px;font-weight:500}.decision-matrix p{margin:0;color:#8f9791;font-size:12px;line-height:1.75}.decision-quote{padding:80px 0;border-top:1px solid #ffffff20;border-bottom:1px solid #ffffff20}.decision-quote p{color:#858e87;font-size:12px}.decision-quote strong{display:block;margin-top:35px;font-size:clamp(38px,5vw,82px);line-height:1.12;letter-spacing:-.055em;font-weight:500}.decision-close{background:#c6ff4a;color:#080a09;padding:130px 0}.decision-close span{color:#334016}.decision-close h2{font-size:clamp(65px,8vw,135px);line-height:.94;letter-spacing:-.065em;font-weight:500;margin:40px 0}.decision-close p{max-width:720px;font-size:15px;line-height:1.85}.decision-close a{width:max-content;margin-top:60px;padding-bottom:8px;border-bottom:1px solid #18210a;display:flex;align-items:center;gap:28px;font-size:14px}.decision-footer{height:100px;display:flex;align-items:center;justify-content:space-between;font-size:9px;letter-spacing:.1em}.decision-footer a{display:flex;align-items:center;gap:8px}.decision-reveal{opacity:0;transform:translateY(35px);filter:blur(5px);transition:opacity 1.1s ease,transform 1.35s cubic-bezier(.2,.75,.25,1),filter 1.2s ease}.decision-reveal.is-visible{opacity:1;transform:none;filter:none}.decision-principle-grid article:nth-child(2){transition-delay:.1s}.decision-principle-grid article:nth-child(3){transition-delay:.2s}.decision-principle-grid article:nth-child(4){transition-delay:.3s}@media(max-width:900px){.decision-shell{width:calc(100vw - 36px)}.decision-nav>div{display:none}.decision-hero-copy{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end}.decision-hero-copy>p{margin-bottom:auto}.decision-hero h1{font-size:20vw}.decision-hero blockquote{margin-top:50px}.decision-intro{grid-template-columns:1fr;padding:100px 0}.decision-section-head{display:block}.decision-section-head h2{margin-top:35px}.decision-principle-grid,.decision-matrix{grid-template-columns:1fr 1fr}.decision-principle-grid article{min-height:360px;border:1px solid #ffffff1d}.decision-case-list article{grid-template-columns:45px 1fr;padding:35px 0}.decision-case-list strong{grid-column:2}.decision-matrix>div{border-bottom:1px solid #ffffff1f}.decision-practice,.decision-tradeoff{padding:100px 0}.decision-close{padding:100px 0}}@media(max-width:560px){.decision-nav>span{display:none}.decision-hero{min-height:680px}.decision-hero h1{font-size:28vw}.decision-hero blockquote{font-size:23px}.decision-intro h2,.decision-section-head h2{font-size:14vw}.decision-principle-grid,.decision-matrix{grid-template-columns:1fr}.decision-principle-grid article{min-height:320px}.decision-matrix>div{min-height:220px;border-right:0}.decision-case-list h3{font-size:31px}.decision-close h2{font-size:17vw}.decision-footer span{display:none}}@media(prefers-reduced-motion:reduce){.decision-reveal{opacity:1;transform:none;filter:none;transition:none}.decision-hero>video{display:none}.decision-hero{background:#0a0d0b}}
+/* Method subpages — unified editorial system */
+.decision-hero-media{position:absolute;z-index:-4;inset:0;overflow:hidden}
+.decision-hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;opacity:0;filter:grayscale(.75) brightness(.35) saturate(.6) contrast(1.12) blur(.35px);transform:scale(1.035);transition:opacity 1.05s ease,transform 4.8s ease}
+.decision-hero-media video.is-active{opacity:1;transform:scale(1.015)}
+.decision-hero-media video:nth-child(2){object-position:center 48%}
+.decision-hero-media video:nth-child(3){object-position:center 45%}
+.validation-hero-media video:nth-child(1){object-position:center 45%}
+.validation-hero-media video:nth-child(2){object-position:center 48%}
+.validation-hero-media video:nth-child(3){object-position:center 48%}
+.delivery-hero-media video:nth-child(1){object-position:center 46%}
+.delivery-hero-media video:nth-child(2){object-position:center 50%}
+.delivery-hero-media video:nth-child(3){object-position:center 45%}
+.decision-page{--method-accent:#c6ff4a;--method-rgb:198,255,74;--method-panel:#0b0f0c}
+.decision-page.validation-page{--method-accent:#83e8df;--method-rgb:131,232,223;--method-panel:#0a1010}
+.decision-page.delivery-page{--method-accent:#e6ff78;--method-rgb:230,255,120;--method-panel:#0d1009}
+.decision-shell{width:min(1700px,calc(100vw - 9vw))}
+.decision-nav{position:absolute;height:82px;z-index:20}
+.decision-nav>div{gap:22px}
+.decision-nav>div a{position:relative;padding:8px 0;color:#c0c6c1;font-size:11px}
+.decision-nav>div a:after{content:"";position:absolute;left:0;bottom:2px;width:0;height:1px;background:var(--method-accent);transition:width .35s ease}
+.decision-nav>div a:hover:after{width:100%}
+.decision-nav>span,.decision-intro>span,.decision-section-head>span,.decision-close span,
+.decision-principle-grid i,.decision-case-list>article>span,.decision-matrix i,
+.validation-steps article>i,.validation-levels i,.delivery-timeline i,.delivery-output-grid i{color:var(--method-accent)}
+.decision-hero{height:100svh;min-height:760px;isolation:isolate;background:#070908}
+.decision-hero>video{z-index:-4;filter:grayscale(.75) brightness(.35) saturate(.6) contrast(1.12) blur(.35px);transform:scale(1.025)}
+.decision-hero .decision-veil{z-index:-3;background:
+  linear-gradient(90deg,rgba(3,5,4,.92),rgba(3,5,4,.46) 58%,rgba(3,5,4,.22)),
+  linear-gradient(0deg,#070908 0%,rgba(7,9,8,.55) 25%,transparent 58%)}
+.decision-hero:before{content:"";position:absolute;z-index:-2;inset:82px 4.5vw 0;pointer-events:none;
+  background:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:74px 74px;
+  mask-image:linear-gradient(to bottom,black,transparent 92%)}
+.decision-hero:after{content:"";position:absolute;z-index:-1;width:min(45vw,720px);aspect-ratio:1;right:7vw;top:17vh;border:1px solid rgba(var(--method-rgb),.2);transform:rotate(12deg);box-shadow:0 0 80px rgba(var(--method-rgb),.035) inset;pointer-events:none;animation:methodFrame 14s ease-in-out infinite}
+.validation-page .decision-hero:after{border-radius:50%;border-color:rgba(var(--method-rgb),.24);box-shadow:0 0 0 8vw rgba(var(--method-rgb),.025),0 0 0 16vw rgba(var(--method-rgb),.018);animation:validationScan 8s ease-in-out infinite}
+.delivery-page .decision-hero:after{width:min(51vw,820px);aspect-ratio:1.3;border-left:0;border-right:0;transform:rotate(-9deg);background:linear-gradient(135deg,transparent 48%,rgba(var(--method-rgb),.14) 49%,transparent 50%)}
+@keyframes methodFrame{50%{transform:rotate(17deg) scale(.96);opacity:.55}}
+@keyframes validationScan{50%{transform:rotate(12deg) scale(1.08);opacity:.48}}
+.decision-hero-copy{padding:15vh 0 7vh;grid-template-columns:1.1fr .75fr;grid-template-rows:auto 1fr auto}
+.decision-hero-copy>p{font-size:11px;color:var(--method-accent)}
+.decision-hero h1{align-self:center;font-size:clamp(112px,15vw,260px);line-height:.68;letter-spacing:-.095em;text-shadow:0 18px 70px rgba(0,0,0,.4)}
+.decision-hero h1 span{color:#f1f4f1}
+.decision-hero h1{color:rgba(var(--method-rgb),.65)}
+.decision-hero blockquote{align-self:end;max-width:700px;padding-left:34px;border-left:1px solid rgba(var(--method-rgb),.62);font-size:clamp(25px,2.35vw,43px);line-height:1.4}
+.decision-intro{padding:16vh 0;grid-template-columns:.38fr 1.2fr .8fr;gap:5vw}
+.decision-intro h2,.decision-section-head h2{font-weight:500}
+.decision-section-head{grid-template-columns:.38fr 1.2fr;gap:5vw}
+.decision-principle-grid{border-left:1px solid #ffffff1d}
+.decision-principle-grid article{position:relative;overflow:hidden;transition:background .45s ease,border-color .45s ease}
+.decision-principle-grid article:first-child{border-left:0}
+.decision-principle-grid article:after{content:"";position:absolute;width:180px;height:180px;border:1px solid rgba(var(--method-rgb),.12);border-radius:50%;right:-75px;top:-75px;transition:transform .7s ease,opacity .7s ease}
+.decision-principle-grid article:hover{background:rgba(var(--method-rgb),.035);border-color:rgba(var(--method-rgb),.25)}
+.decision-principle-grid article:hover:after{transform:scale(1.45);opacity:.35}
+.decision-practice,.validation-evidence,.delivery-output{background:var(--method-panel)}
+.decision-case-list article{transition:padding .45s ease,background .45s ease}
+.decision-case-list article:hover{padding-left:22px;padding-right:22px;background:linear-gradient(90deg,rgba(var(--method-rgb),.035),transparent)}
+.decision-quote{position:relative;overflow:hidden}
+.decision-quote:after{content:"";position:absolute;right:2%;top:50%;width:150px;height:150px;border:1px solid rgba(var(--method-rgb),.2);border-radius:50%;transform:translateY(-50%)}
+.decision-close{background:var(--method-accent)}
+.decision-close>div{position:relative}
+.decision-close>div:after{content:"";position:absolute;width:min(28vw,430px);aspect-ratio:1;border:1px solid rgba(8,10,9,.2);border-radius:50%;right:0;top:50%;transform:translateY(-50%)}
+.decision-reveal{transform:translateY(60px);filter:blur(8px);transition-duration:1.35s}
+.validation-steps article,.delivery-timeline article{position:relative;transition:padding .4s ease,background .4s ease}
+.validation-steps article:hover,.delivery-timeline article:hover{padding-left:18px;padding-right:18px;background:rgba(var(--method-rgb),.025)}
+.validation-levels>div,.delivery-output-grid>div{transition:background .4s ease}
+.validation-levels>div:hover,.delivery-output-grid>div:hover{background:rgba(var(--method-rgb),.035)}
+
+@media(max-width:900px){
+  .decision-shell{width:calc(100vw - 36px)}
+  .decision-hero:before{inset-left:18px;inset-right:18px}
+  .decision-hero:after{width:70vw;right:-18vw;top:22vh}
+  .decision-hero-copy{padding-top:14vh}
+  .decision-hero h1{font-size:21vw}
+  .decision-hero blockquote{border-left:0;padding-left:0}
+  .decision-intro{grid-template-columns:1fr}
+  .decision-close>div:after{opacity:.2;width:52vw}
+}
+@media(max-width:560px){
+  .decision-hero{min-height:720px}
+  .decision-hero h1{font-size:28vw}
+  .decision-hero blockquote{font-size:22px}
+  .decision-hero:after{width:90vw;right:-38vw}
+  .decision-nav{height:70px}
+}
+@media(prefers-reduced-motion:reduce){
+  .decision-hero-media video{transition:none}
+  .decision-hero-media video:not(:first-child){display:none}
+  .decision-hero:after{animation:none}
+}
+
+
+/* Insights-page composition alignment */
+.decision-hero-copy{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:flex-start;
+  padding-top:13vh;
+  padding-bottom:6vh;
+}
+.decision-hero-copy>p{margin:0 0 5vh}
+.decision-hero h1{
+  align-self:flex-start;
+  margin:0;
+  font-size:clamp(105px,13vw,230px);
+  line-height:.68;
+}
+.decision-hero blockquote{
+  align-self:flex-start;
+  margin:auto 0 0;
+  max-width:720px;
+  padding:0;
+  border-left:0;
+  font-size:clamp(27px,2.7vw,48px);
+}
+.decision-hero blockquote:after{
+  content:"INSIGHT / DECISION / ACTION";
+  display:block;
+  margin-top:24px;
+  color:#737a75;
+  font-size:9px;
+  letter-spacing:.18em;
+}
+.validation-page .decision-hero blockquote:after{content:"HYPOTHESIS / PROTOTYPE / EVIDENCE"}
+.delivery-page .decision-hero blockquote:after{content:"ALIGNMENT / OWNERSHIP / DELIVERY"}
+.decision-nav>div{margin-left:auto;margin-right:38px}
+.decision-case-list{display:flex;flex-direction:column;margin-top:70px}
+.decision-case-list article{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:7vw;
+  align-items:center;
+  min-height:0;
+  padding:8vh 0;
+  border-bottom:1px solid #ffffff20;
+}
+.decision-case-list article:nth-child(even){grid-template-columns:.85fr 1.15fr}
+.decision-case-list article:nth-child(even) figure{order:2}
+.decision-case-list article figure{
+  position:relative;
+  height:min(62vh,680px);
+  margin:0;
+  overflow:hidden;
+  background:#111;
+}
+.decision-case-list article figure:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(0deg,rgba(3,5,4,.45),transparent 55%);
+}
+.decision-case-list article figure img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:saturate(.72) contrast(1.05);
+  transition:transform 1.4s cubic-bezier(.2,.7,.2,1),filter .7s ease;
+}
+.decision-case-list article:hover figure img{transform:scale(1.035);filter:saturate(.92) contrast(1.04)}
+.decision-case-list article figure span{
+  position:absolute;
+  z-index:2;
+  left:24px;
+  bottom:22px;
+  color:var(--method-accent);
+  font-size:11px;
+}
+.decision-case-list article>div p{color:var(--method-accent)}
+.decision-case-list article>div h3{
+  margin:22px 0 32px;
+  font-size:clamp(38px,4.2vw,72px);
+  line-height:1.05;
+}
+.decision-case-list article>div strong{
+  display:block;
+  max-width:620px;
+  color:#969e98;
+  font-size:14px;
+  line-height:1.9;
+  font-weight:400;
+}
+.decision-case-list article:hover{padding-left:0;padding-right:0;background:none}
+
+@media(max-width:900px){
+  .decision-nav>div{display:none}
+  .decision-hero-copy{padding-top:14vh}
+  .decision-hero h1{font-size:21vw}
+  .decision-case-list article,.decision-case-list article:nth-child(even){grid-template-columns:1fr;gap:36px;padding:70px 0}
+  .decision-case-list article:nth-child(even) figure{order:0}
+  .decision-case-list article figure{height:58vw;min-height:360px}
+}
+@media(max-width:560px){
+  .decision-hero h1{font-size:28vw}
+  .decision-hero blockquote{font-size:23px}
+  .decision-case-list article figure{height:72vw;min-height:280px}
+  .decision-case-list article>div h3{font-size:38px}
+}
+
+
+/* Editorial image backgrounds for the four decision gates */
+.decision-principle-grid article:before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  opacity:.42;
+  filter:grayscale(1) saturate(.3) brightness(.54) contrast(1.15);
+  transform:scale(1.02);
+  transition:opacity .8s ease,filter .8s ease,transform 5s cubic-bezier(.2,.7,.2,1);
+  pointer-events:none;
+}
+.decision-principle-grid article:nth-child(1):before{
+  background-image:linear-gradient(180deg,rgba(4,7,5,.35),rgba(4,7,5,.72) 58%,rgba(4,7,5,.95)),url('/decision/real-problem.jpg');
+  background-position:58% center;
+}
+.decision-principle-grid article:nth-child(2):before{
+  background-image:linear-gradient(180deg,rgba(4,7,5,.32),rgba(4,7,5,.72) 58%,rgba(4,7,5,.95)),url('/decision/value-density.jpg');
+  background-position:center;
+}
+.decision-principle-grid article:nth-child(3):before{
+  background-image:linear-gradient(180deg,rgba(4,7,5,.3),rgba(4,7,5,.7) 55%,rgba(4,7,5,.96)),url('/decision/delivery-path.jpg');
+  background-position:55% center;
+}
+.decision-principle-grid article:nth-child(4):before{
+  background-image:linear-gradient(180deg,rgba(4,7,5,.32),rgba(4,7,5,.72) 58%,rgba(4,7,5,.95)),url('/decision/clear-boundary.jpg');
+  background-position:center;
+}
+.decision-principle-grid article>*{position:relative;z-index:2}
+.decision-principle-grid article:after{z-index:1}
+.decision-principle-grid article:hover:before{
+  opacity:.62;
+  filter:grayscale(.82) saturate(.48) brightness(.66) contrast(1.08);
+  transform:scale(1.065);
+}
+@media(max-width:900px){
+  .decision-principle-grid article:before{opacity:.36;filter:grayscale(1) saturate(.25) brightness(.46) contrast(1.14)}
+}
+
+/* Mysterious technology imagery for trade-off principles */
+.decision-matrix>div{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:#070a08;
+}
+.decision-matrix>div:before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  opacity:.5;
+  filter:saturate(.58) brightness(.5) contrast(1.2);
+  transform:scale(1.025);
+  transition:opacity .85s ease,filter .85s ease,transform 5.5s cubic-bezier(.2,.72,.2,1);
+  pointer-events:none;
+}
+.decision-matrix>div:after{
+  content:"";
+  position:absolute;
+  z-index:1;
+  inset:0;
+  background:
+    linear-gradient(180deg,rgba(3,6,5,.2),rgba(3,6,5,.6) 54%,rgba(3,6,5,.94)),
+    radial-gradient(circle at 75% 18%,rgba(198,255,74,.08),transparent 38%);
+  pointer-events:none;
+}
+.decision-matrix>div:nth-child(1):before{
+  background-image:url('/decision/tradeoff-core-task.jpg');
+  background-position:center 44%;
+}
+.decision-matrix>div:nth-child(2):before{
+  background-image:url('/decision/tradeoff-reliable.jpg');
+  background-position:58% center;
+}
+.decision-matrix>div:nth-child(3):before{
+  background-image:url('/decision/tradeoff-system.jpg');
+  background-position:center;
+}
+.decision-matrix>div:nth-child(4):before{
+  background-image:url('/decision/tradeoff-validation.jpg');
+  background-position:center;
+}
+.decision-matrix>div>*{position:relative;z-index:2}
+.decision-matrix>div:hover:before{
+  opacity:.78;
+  filter:saturate(.78) brightness(.65) contrast(1.12);
+  transform:scale(1.08);
+}
+.decision-matrix>div:hover:after{
+  background:
+    linear-gradient(180deg,rgba(3,6,5,.12),rgba(3,6,5,.5) 54%,rgba(3,6,5,.9)),
+    radial-gradient(circle at 75% 18%,rgba(198,255,74,.13),transparent 42%);
+}
+@media(max-width:900px){
+  .decision-matrix>div:before{opacity:.42;filter:saturate(.5) brightness(.43) contrast(1.18)}
+}
+
+/* Network-sourced editorial imagery for decision experience cases */
+.decision-case-list figure{position:relative;overflow:hidden;background:#080b09}
+.decision-case-list figure:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(4,7,5,.1),rgba(4,7,5,.3)),
+    linear-gradient(180deg,transparent 42%,rgba(4,7,5,.55));
+  pointer-events:none;
+}
+.decision-case-list figure img{
+  filter:grayscale(.82) saturate(.48) brightness(.72) contrast(1.12);
+  transition:filter 1s ease,transform 1.4s cubic-bezier(.2,.72,.2,1);
+}
+.decision-case-list article:hover figure img{
+  filter:grayscale(.55) saturate(.66) brightness(.84) contrast(1.08);
+  transform:scale(1.025);
+}
+.decision-case-list figure>span{z-index:2}
+/* Decisions page: slow, repeatable editorial scroll reveal */
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-reveal{
+  opacity:1;
+  transform:none;
+  filter:none;
+  transition:none;
+}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-principle-grid article:nth-child(1),
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-matrix>div:nth-child(1){--decision-reveal-step:0s}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-principle-grid article:nth-child(2),
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-matrix>div:nth-child(2){--decision-reveal-step:.12s}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-principle-grid article:nth-child(3),
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-matrix>div:nth-child(3){--decision-reveal-step:.24s}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-principle-grid article:nth-child(4),
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-matrix>div:nth-child(4){--decision-reveal-step:.36s}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-case-list article.decision-reveal figure{
+  opacity:0;
+  clip-path:inset(0 100% 0 0);
+  transform:translate3d(-190px,0,0) scale(.98);
+  transition:opacity 1.45s ease,transform 2.25s cubic-bezier(.14,.7,.14,1),clip-path 2.1s cubic-bezier(.18,.7,.16,1);
+  will-change:opacity,transform,clip-path;
+}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-case-list article.decision-reveal.is-visible figure{
+  opacity:1;
+  clip-path:inset(0 0 0 0);
+  transform:translate3d(0,0,0) scale(1);
+  transition-delay:.08s;
+}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-principle-grid article.decision-reveal:before,
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-matrix.decision-reveal>div:before{
+  opacity:0;
+  clip-path:inset(0 100% 0 0);
+  transform:translate3d(-135px,0,0) scale(1.03);
+  transition:opacity 1.35s ease,transform 2.15s cubic-bezier(.14,.7,.14,1),clip-path 2s cubic-bezier(.18,.7,.16,1),filter .85s ease;
+  will-change:opacity,transform,clip-path;
+}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-principle-grid article.decision-reveal.is-visible:before{
+  opacity:.36;
+  clip-path:inset(0 0 0 0);
+  filter:grayscale(1) saturate(.25) brightness(.46) contrast(1.14);
+  transform:translate3d(0,0,0) scale(1.02);
+  transition-delay:var(--decision-reveal-step,0s);
+}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-matrix.decision-reveal.is-visible>div:before{
+  opacity:.42;
+  clip-path:inset(0 0 0 0);
+  filter:saturate(.5) brightness(.43) contrast(1.18);
+  transform:translate3d(0,0,0) scale(1.025);
+  transition-delay:var(--decision-reveal-step,0s);
+}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-principle-grid article.decision-reveal.is-visible:hover:before{
+  opacity:.62;
+  filter:grayscale(.82) saturate(.48) brightness(.66) contrast(1.08);
+  transform:translate3d(0,0,0) scale(1.065);
+}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-matrix.decision-reveal.is-visible>div:hover:before{
+  opacity:.78;
+  filter:saturate(.78) brightness(.65) contrast(1.12);
+  transform:translate3d(0,0,0) scale(1.08);
+}
+main.decision-page:not(.validation-page):not(.delivery-page) :is(
+  .decision-intro.decision-reveal>span,
+  .decision-intro.decision-reveal>h2,
+  .decision-intro.decision-reveal>div>p,
+  .decision-section-head.decision-reveal>span,
+  .decision-section-head.decision-reveal>h2,
+  .decision-principle-grid article.decision-reveal>div,
+  .decision-principle-grid article.decision-reveal>h3,
+  .decision-principle-grid article.decision-reveal>p,
+  .decision-case-list article.decision-reveal>div>p,
+  .decision-case-list article.decision-reveal>div>h3,
+  .decision-case-list article.decision-reveal>div>strong,
+  .decision-matrix.decision-reveal>div>i,
+  .decision-matrix.decision-reveal>div>h3,
+  .decision-matrix.decision-reveal>div>p,
+  .decision-quote.decision-reveal>p,
+  .decision-quote.decision-reveal>strong,
+  .decision-close .decision-reveal>span,
+  .decision-close .decision-reveal>h2,
+  .decision-close .decision-reveal>p
+){
+  opacity:0;
+  filter:blur(6px);
+  transform:translate3d(0,38px,0);
+  transition:opacity 1.45s ease,transform 1.85s cubic-bezier(.18,.72,.18,1),filter 1.45s ease;
+  will-change:opacity,transform,filter;
+}
+main.decision-page:not(.validation-page):not(.delivery-page) :is(
+  .decision-intro.decision-reveal.is-visible>span,
+  .decision-intro.decision-reveal.is-visible>h2,
+  .decision-intro.decision-reveal.is-visible>div>p,
+  .decision-section-head.decision-reveal.is-visible>span,
+  .decision-section-head.decision-reveal.is-visible>h2,
+  .decision-principle-grid article.decision-reveal.is-visible>div,
+  .decision-principle-grid article.decision-reveal.is-visible>h3,
+  .decision-principle-grid article.decision-reveal.is-visible>p,
+  .decision-case-list article.decision-reveal.is-visible>div>p,
+  .decision-case-list article.decision-reveal.is-visible>div>h3,
+  .decision-case-list article.decision-reveal.is-visible>div>strong,
+  .decision-matrix.decision-reveal.is-visible>div>i,
+  .decision-matrix.decision-reveal.is-visible>div>h3,
+  .decision-matrix.decision-reveal.is-visible>div>p,
+  .decision-quote.decision-reveal.is-visible>p,
+  .decision-quote.decision-reveal.is-visible>strong,
+  .decision-close .decision-reveal.is-visible>span,
+  .decision-close .decision-reveal.is-visible>h2,
+  .decision-close .decision-reveal.is-visible>p
+){
+  opacity:1;
+  filter:blur(0);
+  transform:translate3d(0,0,0);
+}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-intro.decision-reveal.is-visible>span,
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-section-head.decision-reveal.is-visible>span{transition-delay:.2s}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-intro.decision-reveal.is-visible>h2,
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-section-head.decision-reveal.is-visible>h2{transition-delay:.48s}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-intro.decision-reveal.is-visible>div>p:nth-child(1){transition-delay:.76s}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-intro.decision-reveal.is-visible>div>p:nth-child(2){transition-delay:1.02s}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-principle-grid article.decision-reveal.is-visible>div{transition-delay:calc(.25s + var(--decision-reveal-step,0s))}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-principle-grid article.decision-reveal.is-visible>h3{transition-delay:calc(.52s + var(--decision-reveal-step,0s))}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-principle-grid article.decision-reveal.is-visible>p{transition-delay:calc(.8s + var(--decision-reveal-step,0s))}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-case-list article.decision-reveal.is-visible>div>p{transition-delay:.48s}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-case-list article.decision-reveal.is-visible>div>h3{transition-delay:.76s}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-case-list article.decision-reveal.is-visible>div>strong{transition-delay:1.06s}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-matrix.decision-reveal.is-visible>div>i{transition-delay:calc(.26s + var(--decision-reveal-step,0s))}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-matrix.decision-reveal.is-visible>div>h3{transition-delay:calc(.54s + var(--decision-reveal-step,0s))}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-matrix.decision-reveal.is-visible>div>p{transition-delay:calc(.82s + var(--decision-reveal-step,0s))}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-quote.decision-reveal.is-visible>p,
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-close .decision-reveal.is-visible>span{transition-delay:.28s}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-quote.decision-reveal.is-visible>strong,
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-close .decision-reveal.is-visible>h2{transition-delay:.58s}
+main.decision-page:not(.validation-page):not(.delivery-page) .decision-close .decision-reveal.is-visible>p{transition-delay:.88s}
+@media(max-width:900px){
+  main.decision-page:not(.validation-page):not(.delivery-page) .decision-case-list article.decision-reveal figure{transform:translate3d(-95px,0,0) scale(.98)}
+  main.decision-page:not(.validation-page):not(.delivery-page) .decision-case-list article.decision-reveal.is-visible figure{transform:translate3d(0,0,0) scale(1)}
+  main.decision-page:not(.validation-page):not(.delivery-page) .decision-principle-grid article.decision-reveal:before,
+  main.decision-page:not(.validation-page):not(.delivery-page) .decision-matrix.decision-reveal>div:before{transform:translate3d(-80px,0,0) scale(1.03)}
+  main.decision-page:not(.validation-page):not(.delivery-page) .decision-principle-grid article.decision-reveal.is-visible:before{transform:translate3d(0,0,0) scale(1.02)}
+  main.decision-page:not(.validation-page):not(.delivery-page) .decision-matrix.decision-reveal.is-visible>div:before{transform:translate3d(0,0,0) scale(1.025)}
+}
+@media(prefers-reduced-motion:reduce){
+  main.decision-page:not(.validation-page):not(.delivery-page) .decision-case-list article.decision-reveal figure,
+  main.decision-page:not(.validation-page):not(.delivery-page) .decision-principle-grid article.decision-reveal:before,
+  main.decision-page:not(.validation-page):not(.delivery-page) .decision-matrix.decision-reveal>div:before,
+  main.decision-page:not(.validation-page):not(.delivery-page) :is(
+    .decision-intro.decision-reveal>span,
+    .decision-intro.decision-reveal>h2,
+    .decision-intro.decision-reveal>div>p,
+    .decision-section-head.decision-reveal>span,
+    .decision-section-head.decision-reveal>h2,
+    .decision-principle-grid article.decision-reveal>div,
+    .decision-principle-grid article.decision-reveal>h3,
+    .decision-principle-grid article.decision-reveal>p,
+    .decision-case-list article.decision-reveal>div>p,
+    .decision-case-list article.decision-reveal>div>h3,
+    .decision-case-list article.decision-reveal>div>strong,
+    .decision-matrix.decision-reveal>div>i,
+    .decision-matrix.decision-reveal>div>h3,
+    .decision-matrix.decision-reveal>div>p,
+    .decision-quote.decision-reveal>p,
+    .decision-quote.decision-reveal>strong,
+    .decision-close .decision-reveal>span,
+    .decision-close .decision-reveal>h2,
+    .decision-close .decision-reveal>p
+  ){
+    opacity:1;
+    clip-path:none;
+    filter:none;
+    transform:none;
+    transition:none;
+  }
+}

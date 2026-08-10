@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.sites-*.tar.gz
+.sites-*.tgz
+.tmp/
+tmp/
+.codex-unused/
+.codex-video-preview/
+*.log

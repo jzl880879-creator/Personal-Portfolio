@@ -1,0 +1,101 @@
+.medical-page{background:#070908;color:#f1f4f0;min-height:100vh}.medical-shell{width:min(1540px,calc(100vw - 80px));margin:auto}.medical-nav{position:absolute;z-index:10;top:0;left:50%;transform:translateX(-50%);width:min(1700px,calc(100vw - 80px));height:92px;border-bottom:1px solid #ffffff2e;display:flex;align-items:center;justify-content:space-between;font-size:9px;letter-spacing:.14em}.medical-nav a,.medical-footer a{display:flex;align-items:center;gap:9px}.medical-nav>span{color:#9ba39c}.medical-hero{position:relative;height:100svh;min-height:760px;overflow:hidden}.medical-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.42) saturate(.55);transform:scale(1.04)}.medical-veil{position:absolute;inset:0;background:linear-gradient(90deg,#030504f0,#03050494 48%,#03050438),linear-gradient(0deg,#030504cc,transparent 50%)}.medical-hero-copy{position:absolute;z-index:3;left:max(40px,calc((100vw - 1700px)/2));right:max(40px,calc((100vw - 1700px)/2));top:20%;bottom:13%;display:flex;flex-direction:column}.medical-hero-copy>p,.medical-intro>span,.medical-pdf>p{font-size:9px;letter-spacing:.18em;color:#c6ff4a}.medical-hero h1{font-size:clamp(76px,10vw,178px);line-height:.83;letter-spacing:-.075em;font-weight:500;margin:6vh 0 0}.medical-hero h1 span{color:#8f9891}.medical-summary{margin-top:auto;display:flex;gap:80px}.medical-summary strong{font-size:19px;font-weight:500}.medical-summary span{max-width:390px;color:#aeb5af;font-size:13px;line-height:1.7}.medical-index{position:absolute;z-index:3;right:max(40px,calc((100vw - 1700px)/2));bottom:5%;display:flex;gap:40px;font-size:8px;letter-spacing:.14em;color:#8f9790}.medical-intro{padding:160px 0 180px;display:grid;grid-template-columns:.35fr 1fr;gap:40px;border-bottom:1px solid #ffffff21}.medical-intro h2{grid-column:2;font-size:clamp(50px,6vw,104px);line-height:1.03;letter-spacing:-.06em;font-weight:500;margin:0}.medical-intro>p{grid-column:2;max-width:700px;font-size:16px;line-height:1.9;color:#929a94;margin:50px 0 0}.medical-chapter{padding:150px 0 170px;border-bottom:1px solid #ffffff21}.chapter-head{display:flex;justify-content:space-between;padding-bottom:25px;border-bottom:1px solid #ffffff21;font-size:9px;letter-spacing:.15em;color:#8e9690}.chapter-head span{color:#c6ff4a}.chapter-head p{margin:0}.chapter-title{display:grid;grid-template-columns:1.2fr .8fr;align-items:end;gap:80px;padding:65px 0 70px}.chapter-title h2{font-size:clamp(50px,5vw,88px);line-height:1;letter-spacing:-.055em;font-weight:500;margin:0}.chapter-title p{color:#969e98;font-size:14px;line-height:1.85;margin:0}.chapter-gallery{display:grid;gap:18px}.gallery-2{grid-template-columns:1.2fr .8fr}.gallery-3{grid-template-columns:1.15fr .85fr}.gallery-3 figure:last-child{grid-column:1/-1;aspect-ratio:2.3/1}.chapter-gallery figure{position:relative;margin:0;background:#111512;overflow:hidden;aspect-ratio:16/10}.chapter-gallery img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.78);transition:.7s}.chapter-gallery figure:hover img{transform:scale(1.025);filter:saturate(1)}.chapter-gallery figcaption{position:absolute;left:18px;bottom:14px;padding:7px 9px;background:#050706cc;font-size:8px}.chapter-tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:32px}.chapter-tags span{padding:9px 13px;border:1px solid #ffffff24;border-radius:99px;color:#a3aba5;font-size:9px}.medical-pdf{padding:180px 0;min-height:75vh;display:flex;flex-direction:column;justify-content:center}.medical-pdf h2{font-size:clamp(62px,8vw,138px);line-height:.92;letter-spacing:-.065em;font-weight:500;margin:50px 0 80px}.medical-pdf a{width:max-content;display:flex;align-items:center;gap:45px;background:#c6ff4a;color:#0b0d0b;padding:18px 22px;font-size:10px;letter-spacing:.13em}.medical-footer{width:min(1700px,calc(100vw - 80px));margin:auto;padding:35px 0;border-top:1px solid #ffffff26;display:flex;justify-content:space-between;font-size:9px}@media(max-width:800px){.medical-shell,.medical-nav,.medical-footer{width:calc(100vw - 36px)}.medical-nav>span{display:none}.medical-hero-copy{left:18px;right:18px}.medical-hero h1{font-size:15vw}.medical-summary{flex-direction:column;gap:16px}.medical-index{left:18px;right:auto;gap:15px}.medical-intro{padding:100px 0;display:block}.medical-intro h2{font-size:13vw;margin:35px 0}.medical-chapter{padding:90px 0}.chapter-title{display:block;padding:45px 0}.chapter-title h2{font-size:12vw;margin-bottom:30px}.gallery-2,.gallery-3{grid-template-columns:1fr}.gallery-3 figure:last-child{grid-column:auto;aspect-ratio:16/10}.medical-pdf h2{font-size:15vw}.medical-footer span{display:none}}.analysis-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin:0 0 80px}.analysis-grid article{grid-column:span 4;min-height:270px;padding:28px;display:flex;flex-direction:column;background:linear-gradient(145deg,#111512,#090b0a);border:1px solid #ffffff17;transition:.35s}.analysis-grid article:nth-child(-n+2){grid-column:span 6}.analysis-grid article:hover{border-color:#c6ff4a4d;transform:translateY(-4px)}.analysis-grid span{color:#c6ff4a;font-size:9px;letter-spacing:.14em}.analysis-grid h3{margin:auto 0 22px;font-size:22px;font-weight:500;letter-spacing:-.035em}.analysis-grid p{margin:0;color:#929a94;font-size:12px;line-height:1.8}.project-card.grid{cursor:pointer}
+@media(max-width:800px){.analysis-grid{display:block;margin-bottom:50px}.analysis-grid article{min-height:220px;margin-bottom:12px}.analysis-grid h3{margin-top:65px}}.inline-pdf-section{padding:170px 0 0;background:#040605;border-top:1px solid #ffffff21}.inline-pdf-head{padding-bottom:100px;display:grid;grid-template-columns:.32fr 1fr;gap:36px}.inline-pdf-head>span{color:#c6ff4a;font-size:9px;letter-spacing:.18em}.inline-pdf-head h2{grid-column:2;font-size:clamp(60px,7vw,120px);line-height:.93;letter-spacing:-.065em;font-weight:500;margin:0}.inline-pdf-head p{grid-column:2;color:#889089;font-size:9px;letter-spacing:.15em;margin:20px 0 0}.inline-pdf-list{width:min(1600px,calc(100vw - 80px));margin:auto;padding-bottom:140px}.inline-pdf-page{position:relative;width:100%;aspect-ratio:16/9;margin:0 0 4px;background:linear-gradient(145deg,#101411,#080a09);overflow:hidden}.inline-pdf-page canvas{display:block;width:100%;height:100%;object-fit:contain;background:#090b0a}.inline-pdf-page figcaption{position:absolute;z-index:2;right:18px;bottom:15px;padding:7px 9px;background:#050706d9;color:#c6ff4a;font-size:8px;letter-spacing:.14em}.pdf-loading{height:55vh;display:grid;place-items:center;color:#8d958f;font-size:11px;letter-spacing:.12em}@media(max-width:800px){.inline-pdf-section{padding-top:100px}.inline-pdf-head{display:block;padding-bottom:60px}.inline-pdf-head h2{font-size:15vw;margin:35px 0}.inline-pdf-list{width:calc(100vw - 18px)}.inline-pdf-page{margin-bottom:3px}.inline-pdf-page figcaption{right:8px;bottom:8px}}.medical-hero>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;filter:brightness(.48) saturate(.7) contrast(1.04)}@media(prefers-reduced-motion:reduce){.medical-hero>video{display:none}.medical-hero{background:#050706 url('/medical-hero/laser.jpg') center/cover no-repeat}}.chapter-actions{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:32px}.chapter-actions .chapter-tags{margin-top:0}.chapter-detail-link{display:flex;align-items:center;gap:32px;padding:15px 17px 15px 22px;background:#c6ff4a;color:#0a0c0a;font-size:11px;letter-spacing:.08em;white-space:nowrap}.laser-detail{background:#070908;color:#f1f4f0;min-height:100vh}.laser-detail-hero{position:relative;height:100svh;min-height:720px;overflow:hidden}.laser-detail-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.45) saturate(.55)}.laser-detail-hero>div{position:absolute;inset:0;background:linear-gradient(90deg,#020403ed,#02040370 52%,transparent),linear-gradient(0deg,#020403c9,transparent 50%)}.laser-detail-hero>section{position:absolute;z-index:2;left:max(40px,calc((100vw - 1700px)/2));bottom:12%;}.laser-detail-hero p,.laser-detail-intro>span{color:#c6ff4a;font-size:9px;letter-spacing:.17em}.laser-detail-hero h1{font-size:clamp(72px,9vw,160px);line-height:.9;letter-spacing:-.065em;font-weight:500;margin:35px 0}.laser-detail-hero section>span{color:#aab2ac;font-size:10px;letter-spacing:.15em}.laser-detail-intro{padding:160px 0;display:grid;grid-template-columns:.35fr 1fr;gap:40px}.laser-detail-intro h2{grid-column:2;font-size:clamp(54px,6vw,105px);line-height:1;letter-spacing:-.06em;font-weight:500;margin:0}.laser-detail-intro p{grid-column:2;max-width:680px;color:#929a94;font-size:15px;line-height:1.9}.laser-detail-gallery{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;padding-bottom:160px}.laser-detail-gallery img{width:100%;height:100%;object-fit:cover;min-height:540px}@media(max-width:800px){.chapter-actions{align-items:flex-start;flex-direction:column}.laser-detail-hero>section{left:18px}.laser-detail-hero h1{font-size:17vw}.laser-detail-intro{display:block;padding:100px 0}.laser-detail-intro h2{font-size:14vw;margin:35px 0}.laser-detail-gallery{grid-template-columns:1fr;padding-bottom:90px}.laser-detail-gallery img{min-height:320px}}.chapter-detail-link{min-width:260px;min-height:68px;padding:20px 22px 20px 30px;justify-content:space-between;font-size:15px;font-weight:500;letter-spacing:.06em}.chapter-detail-link svg{width:24px;height:24px;stroke-width:1.8}
+@media(max-width:800px){.chapter-detail-link{min-width:230px;min-height:62px;font-size:14px}}
+/* Medical project slat selector */
+.medical-project-selector{padding:0 0 150px;background:#070908;overflow:hidden}.selector-heading{display:flex;justify-content:space-between;align-items:center;padding:0 0 34px;border-bottom:1px solid #ffffff21}.selector-heading span{color:#c6ff4a;font-size:9px;letter-spacing:.18em}.selector-heading p{margin:0;color:#7f8781;font-size:10px;letter-spacing:.08em}.selector-slats{display:flex;height:690px;margin-top:55px;isolation:isolate;overflow:hidden}.selector-slat{position:relative;flex:1;min-width:0;height:100%;margin-left:-3.4%;overflow:hidden;clip-path:polygon(17% 0,100% 0,83% 100%,0 100%);background:#111512;transition:flex .55s cubic-bezier(.2,.75,.25,1),filter .5s ease,opacity .5s ease;filter:brightness(.62) saturate(.45)}.selector-slat:first-child{margin-left:0}.selector-slat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform .75s cubic-bezier(.2,.75,.25,1),filter .5s ease}.selector-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,6,5,.14),rgba(4,6,5,.25) 38%,rgba(4,6,5,.96) 100%),linear-gradient(90deg,rgba(0,0,0,.5),transparent 55%)}.selector-number{position:absolute;z-index:2;top:34px;left:18%;font-size:clamp(44px,4vw,72px);line-height:1;font-weight:400;letter-spacing:-.07em;color:#ffffff47}.selector-copy{position:absolute;z-index:2;left:18%;right:17%;bottom:42px}.selector-copy>span{display:block;min-height:26px;color:#b2bab4;font-size:8px;line-height:1.45;letter-spacing:.12em}.selector-copy h2{min-height:88px;margin:18px 0 28px;font-size:clamp(28px,2.25vw,42px);line-height:1.08;letter-spacing:-.045em;font-weight:500}.selector-copy p{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:0;padding-top:20px;border-top:1px solid #ffffff2b;color:#c6ff4a;font-size:12px;letter-spacing:.04em}.selector-slats:hover .selector-slat{filter:brightness(.24) saturate(.15);opacity:.48}.selector-slats .selector-slat:hover,.selector-slats .selector-slat:focus-visible{z-index:4;flex:1.42;filter:brightness(1) saturate(.92);opacity:1}.selector-slat:hover img,.selector-slat:focus-visible img{transform:scale(1.025)}.medical-chapter{scroll-margin-top:30px}.medical-chapter:target{animation:chapterFocus 1.1s ease}.medical-chapter:target .chapter-head{border-color:#c6ff4a80}@keyframes chapterFocus{0%{opacity:.35;transform:translateY(24px)}100%{opacity:1;transform:none}}
+@media(max-width:1100px){.selector-slats{height:610px;overflow-x:auto;scroll-snap-type:x mandatory}.selector-slat{flex:0 0 38%;margin-left:-4%;scroll-snap-align:center}.selector-slats:hover .selector-slat{opacity:1;filter:brightness(.6) saturate(.45)}.selector-slats .selector-slat:hover{flex-basis:42%;filter:brightness(1) saturate(.9)}.selector-copy{left:19%;right:14%}.selector-copy h2{font-size:30px}}
+@media(max-width:700px){.medical-project-selector{padding-bottom:90px}.selector-heading{display:block;padding-bottom:24px}.selector-heading p{margin-top:14px;line-height:1.6}.selector-slats{width:calc(100vw - 18px);height:auto;display:grid;grid-template-columns:1fr;gap:12px;margin-top:30px;overflow:visible}.selector-slat{width:100%;height:440px;margin:0;clip-path:none;filter:brightness(.72) saturate(.55)}.selector-slat:hover,.selector-slat:focus-visible{height:440px;filter:brightness(1) saturate(.9)}.selector-number{left:24px;top:24px}.selector-copy{left:24px;right:24px;bottom:26px}.selector-copy h2{min-height:0;font-size:34px}.selector-copy>span{min-height:0}.medical-chapter{scroll-margin-top:10px}}
+@media(prefers-reduced-motion:reduce){.selector-slat,.selector-slat img,.medical-chapter:target{transition:none;animation:none}}
+/* On-demand render viewer */
+.selector-slat.is-active{z-index:5;flex:1.42;filter:brightness(1) saturate(.95)!important;opacity:1!important}.medical-render-viewer{scroll-margin-top:0;padding:130px 0 170px;background:#040605;border-top:1px solid #ffffff21;animation:viewerReveal .75s cubic-bezier(.2,.75,.25,1)}@keyframes viewerReveal{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:none}}.render-viewer-layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:70px;align-items:start}.render-project-nav{position:sticky;top:28px;min-height:calc(100vh - 56px);display:flex;flex-direction:column;padding:24px 0;border-top:1px solid #ffffff2b;border-bottom:1px solid #ffffff20}.render-project-nav>span{color:#c6ff4a;font-size:9px;letter-spacing:.18em;margin-bottom:36px}.render-project-nav nav{display:flex;flex-direction:column}.render-project-nav button{appearance:none;width:100%;display:grid;grid-template-columns:32px 1fr;align-items:center;gap:12px;padding:17px 0;border:0;border-bottom:1px solid #ffffff17;background:transparent;color:#717972;text-align:left;cursor:pointer;transition:color .3s,padding-left .3s}.render-project-nav button:first-child{border-top:1px solid #ffffff17}.render-project-nav button:hover,.render-project-nav button.active{color:#f4f6f2;padding-left:8px}.render-project-nav button.active i{color:#c6ff4a}.render-project-nav button i{font-style:normal;font-size:9px;letter-spacing:.12em}.render-project-nav button b{font-size:13px;font-weight:400;line-height:1.4}.render-project-nav>a{margin-top:auto;display:flex;align-items:center;justify-content:space-between;color:#89918b;font-size:10px;letter-spacing:.05em}.render-project-content{min-width:0}.render-project-content>header{display:grid;grid-template-columns:110px 1fr;gap:20px;padding-bottom:70px}.render-project-content>header>span{color:#c6ff4a;font-size:10px;letter-spacing:.15em}.render-project-content>header>p{margin:0;color:#8d958f;font-size:9px;letter-spacing:.14em;text-align:right}.render-project-content>header>h2{grid-column:1/-1;margin:24px 0 10px;font-size:clamp(56px,6vw,106px);line-height:.94;letter-spacing:-.06em;font-weight:500}.render-project-content>header>div{grid-column:2;max-width:670px;color:#969e98;font-size:14px;line-height:1.85}.render-image-wall{display:flex;flex-direction:column;gap:8px}.render-image-wall figure{position:relative;margin:0;width:100%;min-height:420px;background:#0b0e0c;overflow:hidden}.render-image-wall img{display:block;width:100%;height:auto;min-height:420px;object-fit:cover}.render-image-wall figcaption{position:absolute;right:18px;bottom:16px;padding:7px 9px;background:#040605d9;color:#c6ff4a;font-size:8px;letter-spacing:.14em}
+@media(max-width:900px){.render-viewer-layout{grid-template-columns:190px minmax(0,1fr);gap:34px}.render-project-nav button{grid-template-columns:25px 1fr}.render-project-content>header>h2{font-size:8vw}}
+@media(max-width:700px){.medical-render-viewer{padding:80px 0 100px}.render-viewer-layout{display:block}.render-project-nav{position:sticky;z-index:10;top:0;min-height:0;margin-bottom:55px;padding:15px 0;background:#040605f2;backdrop-filter:blur(12px)}.render-project-nav>span,.render-project-nav>a{display:none}.render-project-nav nav{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}.render-project-nav button,.render-project-nav button:first-child{display:block;padding:10px 5px!important;border:1px solid #ffffff19;text-align:center}.render-project-nav button b{display:none}.render-project-nav button.active{background:#c6ff4a;color:#080a09}.render-project-nav button.active i{color:#080a09}.render-project-content>header{display:block;padding-bottom:45px}.render-project-content>header>p{text-align:left;margin-top:12px}.render-project-content>header>h2{font-size:13vw;margin-top:35px}.render-project-content>header>div{margin-top:28px}.render-image-wall figure,.render-image-wall img{min-height:240px}}
+@media(prefers-reduced-motion:reduce){.medical-render-viewer{animation:none}}
+/* Remove project index header */
+.render-project-nav{padding-top:0;border-top:0}.render-project-nav>span{display:none}
+
+/* The medical project switcher stays available throughout long render walls. */
+@media(min-width:701px){
+  .medical-page:not(.industrial-page) .medical-render-viewer,
+  .medical-page:not(.industrial-page) .render-viewer-layout{
+    overflow:visible;
+  }
+  .medical-page:not(.industrial-page) .render-viewer-layout{
+    align-items:start;
+  }
+  .medical-page:not(.industrial-page) .medical-floating-nav{
+    position:relative;
+    top:auto;
+    align-self:stretch;
+    display:block;
+    height:auto;
+    min-height:100%;
+    max-height:none;
+    padding:0;
+    overflow:visible;
+    border:0;
+  }
+  .medical-page:not(.industrial-page) .medical-floating-nav__inner{
+    position:absolute;
+    z-index:8;
+    top:0;
+    left:0;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    height:calc(100vh - 48px);
+    height:calc(100dvh - 48px);
+    min-height:0;
+    padding:0 0 20px;
+    border-bottom:1px solid #ffffff20;
+    background:#040605;
+  }
+  .medical-page:not(.industrial-page) .medical-floating-nav[data-follow="fixed"] .medical-floating-nav__inner{
+    position:fixed;
+    top:24px;
+    left:var(--floating-left);
+    width:var(--floating-width);
+  }
+  .medical-page:not(.industrial-page) .medical-floating-nav[data-follow="end"] .medical-floating-nav__inner{
+    top:auto;
+    bottom:0;
+  }
+  .medical-page:not(.industrial-page) .medical-floating-nav__inner>a{
+    margin-top:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    color:#89918b;
+    font-size:10px;
+    letter-spacing:.05em;
+  }
+}
+
+@media(max-width:700px){
+  .medical-page:not(.industrial-page) .medical-floating-nav{
+    position:sticky;
+    top:0;
+    z-index:10;
+    height:auto;
+    min-height:0;
+    max-height:none;
+    margin-bottom:55px;
+    padding:0;
+    overflow:visible;
+    background:#040605f2;
+    backdrop-filter:blur(12px);
+  }
+  .medical-page:not(.industrial-page) .medical-floating-nav__inner{
+    position:static;
+    display:block;
+    height:auto;
+    min-height:0;
+    max-height:none;
+    padding:15px 0;
+    overflow:visible;
+    border:0;
+  }
+  .medical-page:not(.industrial-page) .medical-floating-nav__inner>a{
+    display:none;
+  }
+}

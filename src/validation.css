@@ -1,0 +1,206 @@
+.validation-hero>video{filter:brightness(.4) saturate(.52) contrast(1.12)}.validation-hero .decision-veil{background:linear-gradient(90deg,rgba(2,4,3,.94),rgba(2,4,3,.5) 60%,rgba(2,4,3,.24)),linear-gradient(0deg,rgba(2,4,3,.88),transparent 58%)}.validation-loop{padding:160px 0 180px}.validation-steps{margin:65px 0 120px;border-top:1px solid #ffffff20}.validation-steps article{display:grid;grid-template-columns:75px 1fr minmax(170px,240px);gap:28px;align-items:center;min-height:145px;border-bottom:1px solid #ffffff20}.validation-steps article>i{color:#c6ff4a;font-style:normal;font-size:10px}.validation-steps h3{margin:0 0 12px;font-size:30px;font-weight:500}.validation-steps p{margin:0;color:#929a94;font-size:13px;line-height:1.75}.validation-steps article>span{color:#69716b;font-size:11px;letter-spacing:.14em;line-height:1.4;text-align:right;white-space:nowrap}.validation-evidence{padding:150px 0 170px;background:#0b0e0c}.validation-levels{display:grid;grid-template-columns:repeat(4,1fr);margin-top:65px;border:1px solid #ffffff1f}.validation-levels>div{min-height:300px;padding:28px;display:flex;flex-direction:column;border-right:1px solid #ffffff1f}.validation-levels>div:last-child{border-right:0}.validation-levels i{font-style:normal;color:#c6ff4a;font-size:9px}.validation-levels b{margin:auto 0 22px;font-size:25px;font-weight:500}.validation-levels p{margin:0;color:#919992;font-size:12px;line-height:1.75}@media(max-width:900px){.validation-loop,.validation-evidence{padding:100px 0}.validation-steps article{grid-template-columns:58px 1fr minmax(150px,190px)}.validation-levels{grid-template-columns:1fr 1fr}.validation-levels>div{border-bottom:1px solid #ffffff1f}}@media(max-width:560px){.validation-steps article{grid-template-columns:38px 1fr;min-height:160px;padding:24px 0}.validation-steps article>span{display:block;grid-column:2;margin-top:-10px;text-align:left;white-space:normal}.validation-steps h3{font-size:26px}.validation-levels{grid-template-columns:1fr}.validation-levels>div{min-height:230px;border-right:0}}
+
+/* Validation levels: four independent evidence themes */
+.validation-page .validation-levels>div{position:relative;isolation:isolate;overflow:hidden;background:#080c0c}
+.validation-page .validation-levels>div:nth-child(1){--evidence-image:url('/validation/evidence-sketch-storyboard.jpg');--evidence-position:center}
+.validation-page .validation-levels>div:nth-child(2){--evidence-image:url('/validation/evidence-low-fidelity-model.jpg');--evidence-position:center}
+.validation-page .validation-levels>div:nth-child(3){--evidence-image:url('/validation/evidence-interaction-appearance-prototype.jpg');--evidence-position:center}
+.validation-page .validation-levels>div:nth-child(4){--evidence-image:url('/validation/evidence-engineering-prototype.jpg');--evidence-position:center}
+.validation-page .validation-levels>div:before{content:"";position:absolute;z-index:0;inset:0;background-image:var(--evidence-image);background-position:var(--evidence-position);background-repeat:no-repeat;background-size:cover;opacity:.5;filter:grayscale(.72) saturate(.58) brightness(.7) contrast(1.1);transform:scale(1.025);transition:transform 1s cubic-bezier(.2,.72,.2,1),opacity .6s ease,filter .6s ease;pointer-events:none}
+.validation-page .validation-levels>div:after{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(180deg,rgba(3,8,8,.3),rgba(3,8,8,.72) 54%,rgba(3,8,8,.97));pointer-events:none}
+.validation-page .validation-levels>div>*{position:relative;z-index:2}
+.validation-page .validation-levels>div:hover:before{opacity:.62;filter:grayscale(.45) saturate(.72) brightness(.8) contrast(1.08);transform:scale(1.065)}
+@media(prefers-reduced-motion:reduce){.validation-page .validation-levels>div:before{transition:none}.validation-page .validation-levels>div:hover:before{transform:scale(1.025)}}
+
+/* Validation dimensions: distinct desirability, usability, feasibility and consistency imagery */
+.validation-page .decision-principle-grid>article:before{opacity:.48;filter:grayscale(.78) saturate(.52) brightness(.68) contrast(1.1)}
+.validation-page .decision-principle-grid>article:nth-child(1):before{background-image:linear-gradient(180deg,rgba(3,7,6,.28),rgba(3,7,6,.68) 56%,rgba(3,7,6,.96)),url('/validation/dimension-desirability.jpg');background-position:center 44%}
+.validation-page .decision-principle-grid>article:nth-child(2):before{background-image:linear-gradient(180deg,rgba(3,7,6,.25),rgba(3,7,6,.68) 56%,rgba(3,7,6,.96)),url('/validation/dimension-usability.jpg');background-position:55% center}
+.validation-page .decision-principle-grid>article:nth-child(3):before{background-image:linear-gradient(180deg,rgba(3,7,6,.24),rgba(3,7,6,.66) 54%,rgba(3,7,6,.96)),url('/validation/dimension-feasibility.jpg');background-position:center}
+.validation-page .decision-principle-grid>article:nth-child(4):before{background-image:linear-gradient(180deg,rgba(3,7,6,.26),rgba(3,7,6,.69) 56%,rgba(3,7,6,.96)),url('/validation/dimension-consistency.jpg');background-position:center}
+.validation-page .decision-principle-grid>article:hover:before{opacity:.64;filter:grayscale(.55) saturate(.68) brightness(.78) contrast(1.06)}
+/* Validation page: slow, repeatable left-to-right scroll reveal */
+.validation-page .decision-reveal{
+  opacity:1;
+  transform:none;
+  filter:none;
+  transition:none;
+}
+.validation-page .decision-principle-grid>article:nth-child(1),
+.validation-page .validation-levels>div:nth-child(1){--validation-reveal-step:0s}
+.validation-page .decision-principle-grid>article:nth-child(2),
+.validation-page .validation-levels>div:nth-child(2){--validation-reveal-step:.12s}
+.validation-page .decision-principle-grid>article:nth-child(3),
+.validation-page .validation-levels>div:nth-child(3){--validation-reveal-step:.24s}
+.validation-page .decision-principle-grid>article:nth-child(4),
+.validation-page .validation-levels>div:nth-child(4){--validation-reveal-step:.36s}
+.validation-page .decision-case-list>article.decision-reveal figure{
+  opacity:0;
+  clip-path:inset(0 100% 0 0);
+  transform:translate3d(-190px,0,0) scale(.98);
+  transition:opacity 1.45s ease,transform 2.25s cubic-bezier(.14,.7,.14,1),clip-path 2.1s cubic-bezier(.18,.7,.16,1);
+}
+.validation-page .decision-case-list>article.decision-reveal.is-visible figure{
+  opacity:1;
+  clip-path:inset(0 0 0 0);
+  transform:translate3d(0,0,0) scale(1);
+  transition-delay:.08s;
+}
+.validation-page .decision-principle-grid>article.decision-reveal:before,
+.validation-page .validation-levels.decision-reveal>div:before{
+  opacity:0;
+  clip-path:inset(0 100% 0 0);
+  transform:translate3d(-135px,0,0) scale(1.03);
+  transition:opacity 1.35s ease,transform 2.15s cubic-bezier(.14,.7,.14,1),clip-path 2s cubic-bezier(.18,.7,.16,1),filter .85s ease;
+}
+.validation-page .decision-principle-grid>article.decision-reveal.is-visible:before{
+  opacity:.48;
+  clip-path:inset(0 0 0 0);
+  filter:grayscale(.78) saturate(.52) brightness(.68) contrast(1.1);
+  transform:translate3d(0,0,0) scale(1.02);
+  transition-delay:var(--validation-reveal-step,0s);
+}
+.validation-page .validation-levels.decision-reveal.is-visible>div:before{
+  opacity:.5;
+  clip-path:inset(0 0 0 0);
+  filter:grayscale(.72) saturate(.58) brightness(.7) contrast(1.1);
+  transform:translate3d(0,0,0) scale(1.025);
+  transition-delay:var(--validation-reveal-step,0s);
+}
+.validation-page .decision-principle-grid>article.decision-reveal.is-visible:hover:before{
+  opacity:.64;
+  filter:grayscale(.55) saturate(.68) brightness(.78) contrast(1.06);
+  transform:translate3d(0,0,0) scale(1.065);
+}
+.validation-page .validation-levels.decision-reveal.is-visible>div:hover:before{
+  opacity:.62;
+  filter:grayscale(.45) saturate(.72) brightness(.8) contrast(1.08);
+  transform:translate3d(0,0,0) scale(1.065);
+}
+.validation-page :is(
+  .decision-intro.decision-reveal>span,
+  .decision-intro.decision-reveal>h2,
+  .decision-intro.decision-reveal>div>p,
+  .decision-section-head.decision-reveal>span,
+  .decision-section-head.decision-reveal>h2,
+  .decision-principle-grid>article.decision-reveal>div,
+  .decision-principle-grid>article.decision-reveal>h3,
+  .decision-principle-grid>article.decision-reveal>p,
+  .decision-case-list>article.decision-reveal>div>p,
+  .decision-case-list>article.decision-reveal>div>h3,
+  .decision-case-list>article.decision-reveal>div>strong,
+  .validation-steps>article.decision-reveal>i,
+  .validation-steps>article.decision-reveal>div>h3,
+  .validation-steps>article.decision-reveal>div>p,
+  .validation-steps>article.decision-reveal>span,
+  .decision-quote.decision-reveal>p,
+  .decision-quote.decision-reveal>strong,
+  .validation-levels.decision-reveal>div>i,
+  .validation-levels.decision-reveal>div>b,
+  .validation-levels.decision-reveal>div>p,
+  .decision-close .decision-reveal>span,
+  .decision-close .decision-reveal>h2,
+  .decision-close .decision-reveal>p
+){
+  opacity:0;
+  filter:blur(6px);
+  transform:translate3d(0,38px,0);
+  transition:opacity 1.45s ease,transform 1.85s cubic-bezier(.18,.72,.18,1),filter 1.45s ease;
+}
+.validation-page :is(
+  .decision-intro.decision-reveal.is-visible>span,
+  .decision-intro.decision-reveal.is-visible>h2,
+  .decision-intro.decision-reveal.is-visible>div>p,
+  .decision-section-head.decision-reveal.is-visible>span,
+  .decision-section-head.decision-reveal.is-visible>h2,
+  .decision-principle-grid>article.decision-reveal.is-visible>div,
+  .decision-principle-grid>article.decision-reveal.is-visible>h3,
+  .decision-principle-grid>article.decision-reveal.is-visible>p,
+  .decision-case-list>article.decision-reveal.is-visible>div>p,
+  .decision-case-list>article.decision-reveal.is-visible>div>h3,
+  .decision-case-list>article.decision-reveal.is-visible>div>strong,
+  .validation-steps>article.decision-reveal.is-visible>i,
+  .validation-steps>article.decision-reveal.is-visible>div>h3,
+  .validation-steps>article.decision-reveal.is-visible>div>p,
+  .validation-steps>article.decision-reveal.is-visible>span,
+  .decision-quote.decision-reveal.is-visible>p,
+  .decision-quote.decision-reveal.is-visible>strong,
+  .validation-levels.decision-reveal.is-visible>div>i,
+  .validation-levels.decision-reveal.is-visible>div>b,
+  .validation-levels.decision-reveal.is-visible>div>p,
+  .decision-close .decision-reveal.is-visible>span,
+  .decision-close .decision-reveal.is-visible>h2,
+  .decision-close .decision-reveal.is-visible>p
+){
+  opacity:1;
+  filter:blur(0);
+  transform:translate3d(0,0,0);
+}
+.validation-page .decision-intro.decision-reveal.is-visible>span,
+.validation-page .decision-section-head.decision-reveal.is-visible>span{transition-delay:.2s}
+.validation-page .decision-intro.decision-reveal.is-visible>h2,
+.validation-page .decision-section-head.decision-reveal.is-visible>h2{transition-delay:.48s}
+.validation-page .decision-intro.decision-reveal.is-visible>div>p:nth-child(1){transition-delay:.76s}
+.validation-page .decision-intro.decision-reveal.is-visible>div>p:nth-child(2){transition-delay:1.02s}
+.validation-page .decision-principle-grid>article.decision-reveal.is-visible>div{transition-delay:calc(.25s + var(--validation-reveal-step,0s))}
+.validation-page .decision-principle-grid>article.decision-reveal.is-visible>h3{transition-delay:calc(.52s + var(--validation-reveal-step,0s))}
+.validation-page .decision-principle-grid>article.decision-reveal.is-visible>p{transition-delay:calc(.8s + var(--validation-reveal-step,0s))}
+.validation-page .decision-case-list>article.decision-reveal.is-visible>div>p{transition-delay:.48s}
+.validation-page .decision-case-list>article.decision-reveal.is-visible>div>h3{transition-delay:.76s}
+.validation-page .decision-case-list>article.decision-reveal.is-visible>div>strong{transition-delay:1.06s}
+.validation-page .validation-steps>article.decision-reveal.is-visible>i{transition-delay:.2s}
+.validation-page .validation-steps>article.decision-reveal.is-visible>div>h3{transition-delay:.46s}
+.validation-page .validation-steps>article.decision-reveal.is-visible>div>p{transition-delay:.72s}
+.validation-page .validation-steps>article.decision-reveal.is-visible>span{transition-delay:.9s}
+.validation-page .decision-quote.decision-reveal.is-visible>p,
+.validation-page .decision-close .decision-reveal.is-visible>span{transition-delay:.28s}
+.validation-page .decision-quote.decision-reveal.is-visible>strong,
+.validation-page .decision-close .decision-reveal.is-visible>h2{transition-delay:.58s}
+.validation-page .decision-close .decision-reveal.is-visible>p{transition-delay:.88s}
+.validation-page .validation-levels.decision-reveal.is-visible>div>i{transition-delay:calc(.25s + var(--validation-reveal-step,0s))}
+.validation-page .validation-levels.decision-reveal.is-visible>div>b{transition-delay:calc(.52s + var(--validation-reveal-step,0s))}
+.validation-page .validation-levels.decision-reveal.is-visible>div>p{transition-delay:calc(.8s + var(--validation-reveal-step,0s))}
+@media(max-width:900px){
+  .validation-page .decision-case-list>article.decision-reveal figure{transform:translate3d(-95px,0,0) scale(.98)}
+  .validation-page .decision-case-list>article.decision-reveal.is-visible figure{transform:translate3d(0,0,0) scale(1)}
+  .validation-page .decision-principle-grid>article.decision-reveal:before,
+  .validation-page .validation-levels.decision-reveal>div:before{transform:translate3d(-80px,0,0) scale(1.03)}
+  .validation-page .decision-principle-grid>article.decision-reveal.is-visible:before{transform:translate3d(0,0,0) scale(1.02)}
+  .validation-page .validation-levels.decision-reveal.is-visible>div:before{transform:translate3d(0,0,0) scale(1.025)}
+}
+@media(prefers-reduced-motion:reduce){
+  .validation-page .decision-case-list>article.decision-reveal figure,
+  .validation-page .decision-principle-grid>article.decision-reveal:before,
+  .validation-page .validation-levels.decision-reveal>div:before,
+  .validation-page :is(
+    .decision-intro.decision-reveal>span,
+    .decision-intro.decision-reveal>h2,
+    .decision-intro.decision-reveal>div>p,
+    .decision-section-head.decision-reveal>span,
+    .decision-section-head.decision-reveal>h2,
+    .decision-principle-grid>article.decision-reveal>div,
+    .decision-principle-grid>article.decision-reveal>h3,
+    .decision-principle-grid>article.decision-reveal>p,
+    .decision-case-list>article.decision-reveal>div>p,
+    .decision-case-list>article.decision-reveal>div>h3,
+    .decision-case-list>article.decision-reveal>div>strong,
+    .validation-steps>article.decision-reveal>i,
+    .validation-steps>article.decision-reveal>div>h3,
+    .validation-steps>article.decision-reveal>div>p,
+    .validation-steps>article.decision-reveal>span,
+    .decision-quote.decision-reveal>p,
+    .decision-quote.decision-reveal>strong,
+    .validation-levels.decision-reveal>div>i,
+    .validation-levels.decision-reveal>div>b,
+    .validation-levels.decision-reveal>div>p,
+    .decision-close .decision-reveal>span,
+    .decision-close .decision-reveal>h2,
+    .decision-close .decision-reveal>p
+  ){
+    opacity:1;
+    clip-path:none;
+    filter:none;
+    transform:none;
+    transition:none;
+  }
+}
