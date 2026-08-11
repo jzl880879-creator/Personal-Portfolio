@@ -3,6 +3,12 @@ import { join } from "node:path";
 
 const distDir = join(process.cwd(), "dist");
 await rm(join(distDir, "medical-portfolio.pdf"), { force: true });
+const hostingDir = join(distDir, ".openai");
+await mkdir(hostingDir, { recursive: true });
+await copyFile(
+  join(process.cwd(), ".openai", "hosting.json"),
+  join(hostingDir, "hosting.json"),
+);
 const routes = [
   "projects",
   "resume",
