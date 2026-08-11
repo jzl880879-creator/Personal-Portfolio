@@ -7,3 +7,4 @@ tmp/
 .codex-unused/
 .codex-video-preview/
 *.log
+public/medical-portfolio.pdf

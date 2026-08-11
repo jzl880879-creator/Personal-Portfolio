@@ -1,7 +1,8 @@
-import { copyFile, mkdir, writeFile } from "node:fs/promises";
+import { copyFile, mkdir, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
 const distDir = join(process.cwd(), "dist");
+await rm(join(distDir, "medical-portfolio.pdf"), { force: true });
 const routes = [
   "projects",
   "resume",
