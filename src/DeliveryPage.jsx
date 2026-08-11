@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { ArrowLeft, ArrowUpRight } from 'lucide-react'
 import './decision.css'
 import './delivery.css'
+import useMediaMode from './useMediaMode.js'
 
 const dimensions=[
   {no:'01',en:'ALIGNMENT',title:'先把目标变成共同语言',body:'明确用户价值、产品范围、成功标准和阶段边界，让设计、研发、供应链与业务围绕同一个问题作出决策。'},
@@ -25,18 +26,19 @@ const deliveryHeroVideos=['/delivery-preview-01.mp4','/delivery-preview-02.mp4',
 
 export default function DeliveryPage(){
   const [heroShot,setHeroShot]=useState(0)
+  const mediaMode=useMediaMode()
   useEffect(()=>{const nodes=[...document.querySelectorAll('.decision-reveal')];const observer=new IntersectionObserver(entries=>entries.forEach(entry=>entry.target.classList.toggle('is-visible',entry.isIntersecting)),{threshold:.16,rootMargin:'0px 0px -8%'});nodes.forEach(node=>observer.observe(node));return()=>observer.disconnect()},[])
   useEffect(()=>{
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if(mediaMode!=='full') return
     const timer=window.setInterval(()=>setHeroShot(current=>(current+1)%deliveryHeroVideos.length),2200)
     return()=>window.clearInterval(timer)
-  },[])
+  },[mediaMode])
   return <main className="decision-page delivery-page" id="delivery-top">
     <nav className="decision-nav decision-shell"><a href="/"><ArrowLeft size={17}/> 返回作品集</a><div><a href="#dimensions">推进原则</a><a href="#practice">项目实践</a><a href="#rhythm">交付节奏</a></div><span>04 / DELIVER</span></nav>
-    <header className="decision-hero delivery-hero"><div className="decision-hero-media delivery-hero-media" aria-hidden="true">{deliveryHeroVideos.map((video,index)=><video className={index===heroShot?'is-active':''} autoPlay muted loop playsInline preload={index===0?'auto':'metadata'} key={video}><source src={video} type="video/mp4"/></video>)}</div><div className="decision-veil"/><div className="decision-shell decision-hero-copy"><p>04 / DELIVERY & EXECUTION</p><h1><span>落地</span><br/>与推进</h1><blockquote>落地不是设计完成后的最后一步，<br/>而是从目标确定开始，持续协调、<br/>验证和闭环的全过程。</blockquote></div></header>
+    <header className="decision-hero delivery-hero"><div className="decision-hero-media delivery-hero-media" aria-hidden="true">{deliveryHeroVideos.slice(0,mediaMode==='full'?deliveryHeroVideos.length:1).map((video,index)=><video className={index===heroShot?'is-active':''} autoPlay muted loop playsInline preload={index===0?'metadata':'none'} poster={index===0?'/delivery/experience-consistency-inspection.jpg':undefined} key={video}><source src={video} type="video/mp4"/></video>)}</div><div className="decision-veil"/><div className="decision-shell decision-hero-copy"><p>04 / DELIVERY & EXECUTION</p><h1><span>落地</span><br/>与推进</h1><blockquote>落地不是设计完成后的最后一步，<br/>而是从目标确定开始，持续协调、<br/>验证和闭环的全过程。</blockquote></div></header>
     <section className="decision-intro decision-shell decision-reveal"><span>MY POINT OF VIEW</span><h2>让正确的方向，<br/>持续走到最后。</h2><div><p>从工业设计师、设计主管到产品经理，我的工作逐渐从“完成方案”扩展到“推动方案发生”。真实项目不会沿着一条理想路径前进，它始终受到时间、成本、技术、供应链和团队协作的共同影响。</p><p>因此，我把落地理解为持续决策：把目标讲清楚，把任务拆开，把风险前置，把问题留痕，并在每一次变化中判断什么必须坚持、什么可以调整。推进的价值，是让团队始终知道下一步做什么，以及为什么这样做。</p></div></section>
     <section className="decision-principles decision-shell" id="dimensions"><header className="decision-section-head decision-reveal"><span>01 / DELIVERY PRINCIPLES</span><h2>四项机制，保障方案持续向前。</h2></header><div className="decision-principle-grid">{dimensions.map(item=><article className="decision-reveal" key={item.no}><div><i>{item.no}</i><span>{item.en}</span></div><h3>{item.title}</h3><p>{item.body}</p></article>)}</div></section>
-    <section className="decision-practice" id="practice"><div className="decision-shell"><header className="decision-section-head decision-reveal"><span>02 / EXPERIENCE</span><h2>角色在变化，<br/>落地始终是一项系统工作。</h2></header><div className="decision-case-list">{practices.map((item,index)=><article className="decision-reveal" key={item.type}><figure><img src={['/industrial-3c/industrial-47.png','/delivery/experience-consistency-inspection.jpg','/product-management/slides/slide-35.png'][index]} alt={item.title}/><span>0{index+1}</span></figure><div><p>{item.type}</p><h3>{item.title}</h3><strong>{item.body}</strong></div></article>)}</div></div></section>
+    <section className="decision-practice" id="practice"><div className="decision-shell"><header className="decision-section-head decision-reveal"><span>02 / EXPERIENCE</span><h2>角色在变化，<br/>落地始终是一项系统工作。</h2></header><div className="decision-case-list">{practices.map((item,index)=><article className="decision-reveal" key={item.type}><figure><img src={['/industrial-3c/industrial-47.png','/delivery/experience-consistency-inspection.jpg','/product-management/slides/slide-35.png'][index]} alt={item.title} loading="lazy" decoding="async"/><span>0{index+1}</span></figure><div><p>{item.type}</p><h3>{item.title}</h3><strong>{item.body}</strong></div></article>)}</div></div></section>
     <section className="delivery-rhythm decision-shell" id="rhythm"><header className="decision-section-head decision-reveal"><span>03 / PROJECT RHYTHM</span><h2>用清晰节点，<br/>管理复杂过程。</h2></header><div className="delivery-timeline">{rhythm.map(([title,body],index)=><article className="decision-reveal" key={title}><i>{String(index+1).padStart(2,'0')}</i><div><h3>{title}</h3><p>{body}</p></div><span>{index===rhythm.length-1?'DONE':'NEXT'}</span></article>)}</div><div className="decision-quote decision-reveal"><p>面对变化，我会优先保护三件事：</p><strong>核心用户价值不偏移，<br/>关键风险有人负责，<br/>重要决定能够被追溯。</strong></div></section>
     <section className="delivery-output"><div className="decision-shell"><header className="decision-section-head decision-reveal"><span>04 / DELIVERY STANDARD</span><h2>交付的不只是文件，<br/>而是可以继续执行的共识。</h2></header><div className="delivery-output-grid decision-reveal"><div><i>01</i><h3>清晰定义</h3><p>目标用户、核心场景、功能边界与验收标准。</p></div><div><i>02</i><h3>完整规范</h3><p>造型、结构、交互、CMF 与关键体验要求。</p></div><div><i>03</i><h3>问题记录</h3><p>风险、结论、版本变化与后续责任人。</p></div><div><i>04</i><h3>阶段复盘</h3><p>确认结果、经验与下一阶段优化方向。</p></div></div></div></section>
     <section className="decision-close"><div className="decision-shell decision-reveal"><span>05 / MAKE IT REAL</span><h2>把设计意图，<br/>变成真实产品。</h2><p>最终，我希望建立的不是对单一方案的控制，而是一套能够应对变化的推进机制。让团队围绕清晰目标协作，让每个关键问题获得解决，让产品在真实限制中仍然保留最重要的价值。</p></div></section>

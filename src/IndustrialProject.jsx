@@ -168,7 +168,7 @@ export default function IndustrialProject() {
               onClick={(event) => openProject(event, index)}
               key={project.no}
             >
-              <img src={project.cover} alt=""/>
+              <img src={project.cover} alt="" loading="lazy" decoding="async"/>
               <div className="selector-shade"/>
               <div className="selector-number">{project.no}</div>
               <div className="selector-copy">
@@ -214,6 +214,7 @@ export default function IndustrialProject() {
                       src={src}
                       alt={`${projects[activeProject].title} 方案图 ${index + 1}`}
                       loading={index === 0 ? 'eager' : 'lazy'}
+                      decoding="async"
                     />
                     <figcaption>
                       {String(index + 1).padStart(2, '0')} / {String(projects[activeProject].images.length).padStart(2, '0')}

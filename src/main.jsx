@@ -15,6 +15,7 @@ import ProductDefinitionPage from './ProductDefinitionPage.jsx'
 import IndustrialDesignPage from './IndustrialDesignPage.jsx'
 import AIExpressionPage from './AIExpressionPage.jsx'
 import ProjectOverviewPage from './ProjectOverviewPage.jsx'
+import useMediaMode from './useMediaMode.js'
 
 const profile = {
   name: '贾子良', role: '产品设计师 / 产品经理',
@@ -50,13 +51,14 @@ const heroVideoShots = [
   { video:'/home-product-design-prototype.mp4', label:'Rapid prototype validation' },
 ]
 function HeroVideoSequence(){
+  const mediaMode = useMediaMode()
   const [activeShot,setActiveShot] = useState(0)
   const videoRefs = useRef([])
   useEffect(()=>{
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if(mediaMode!=='full') return
     const timer = window.setInterval(()=>setActiveShot(index=>(index+1)%heroVideoShots.length),6500)
     return()=>window.clearInterval(timer)
-  },[])
+  },[mediaMode])
   useEffect(()=>{
     videoRefs.current.forEach((video,index)=>{
       if(!video) return
@@ -69,7 +71,7 @@ function HeroVideoSequence(){
     })
   },[activeShot])
   return <div className="hero-video-layer" aria-hidden="true" data-active-shot={activeShot+1}>
-    {heroVideoShots.map((shot,index)=><video
+    {heroVideoShots.slice(0,mediaMode==='full'?heroVideoShots.length:1).map((shot,index)=><video
       ref={node=>{videoRefs.current[index]=node}}
       className={index===activeShot?'is-active':''}
       key={shot.video}
@@ -77,12 +79,33 @@ function HeroVideoSequence(){
       muted
       loop
       playsInline
-      preload={index===0?'auto':'metadata'}
+      preload={index===0?'metadata':'none'}
       poster={shot.poster}
       aria-label={shot.label}
       onCanPlay={event=>index===activeShot&&event.currentTarget.play().catch(()=>{})}
     ><source src={shot.video} type="video/mp4"/></video>)}
   </div>
+}
+function LazyBackgroundVideo({className,src}){
+  const videoRef = useRef(null)
+  const [shouldLoad,setShouldLoad] = useState(false)
+  const mediaMode = useMediaMode()
+  useEffect(()=>{
+    const node = videoRef.current
+    if(!node || mediaMode!=='full') {
+      setShouldLoad(false)
+      return
+    }
+    const observer = new IntersectionObserver(entries=>{
+      if(entries.some(entry=>entry.isIntersecting)){
+        setShouldLoad(true)
+        observer.disconnect()
+      }
+    },{rootMargin:'320px 0px'})
+    observer.observe(node)
+    return()=>observer.disconnect()
+  },[mediaMode])
+  return <video ref={videoRef} className={className} autoPlay={shouldLoad} muted loop playsInline preload="none" aria-hidden="true">{shouldLoad&&<source src={src} type="video/mp4"/>}</video>
 }
 function CursorGlow(){const ref=useRef(null);useEffect(()=>{const move=e=>{ref.current?.style.setProperty('--x',`${e.clientX}px`);ref.current?.style.setProperty('--y',`${e.clientY}px`)};window.addEventListener('pointermove',move);return()=>window.removeEventListener('pointermove',move)},[]);return <div ref={ref} className="cursor-glow"/>}
 function Mark(){return <a className="mark mark-logo" href="#top" aria-label="Jia Ziliang，回到首页"><span className="mark-monogram" aria-hidden="true"><b>J</b><b>Z</b></span><i className="mark-dot" aria-hidden="true"/></a>}
@@ -121,23 +144,26 @@ function App(){
     return()=>observer.disconnect()
   },[])
   const playInsightPreview = event => {
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.matchMedia('(hover: none), (pointer: coarse)').matches) return
     const card = event.currentTarget
     const videos = [...card.querySelectorAll('.method-card-video')]
     if(!videos.length) return
     clearInterval(card._methodPreviewTimer)
     videos.forEach((video,index)=>{
-      video.currentTime = 0
+      if(video.readyState>0) video.currentTime = 0
       video.classList.toggle('is-active',index===0)
-      video.play().catch(()=>{})
+      if(index===0) video.play().catch(()=>{})
+      else video.pause()
     })
     if(videos.length>1){
       let activeIndex = 0
       card._methodPreviewTimer = setInterval(()=>{
+        videos[activeIndex].pause()
         videos[activeIndex].classList.remove('is-active')
         activeIndex = (activeIndex + 1) % videos.length
-        videos[activeIndex].currentTime = 0
+        if(videos[activeIndex].readyState>0) videos[activeIndex].currentTime = 0
         videos[activeIndex].classList.add('is-active')
+        videos[activeIndex].play().catch(()=>{})
       },2200)
     }
   }
@@ -148,7 +174,7 @@ function App(){
     card._methodPreviewTimer = null
     videos.forEach((video,index)=>{
       video.pause()
-      video.currentTime = 0.52
+      if(video.readyState>0) video.currentTime = 0.52
       video.classList.toggle('is-active',index===0)
     })
   }
@@ -163,7 +189,7 @@ function App(){
     const video = productPreviewRef.current
     if(!video) return
     video.pause()
-    video.currentTime = 0.55
+    if(video.readyState>0) video.currentTime = 0.55
   }
   const playIndustrialPreview = () => {
     if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
@@ -173,7 +199,7 @@ function App(){
     const video = industrialPreviewRef.current
     if(!video) return
     video.pause()
-    video.currentTime = 0
+    if(video.readyState>0) video.currentTime = 0
   }
   const playMedicalPreview = () => {
     if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
@@ -183,7 +209,7 @@ function App(){
     const video = medicalPreviewRef.current
     if(!video) return
     video.pause()
-    video.currentTime = 0
+    if(video.readyState>0) video.currentTime = 0
   }
   useEffect(()=>{
     const nodes=[...document.querySelectorAll('[data-reveal]')]
@@ -211,10 +237,10 @@ function App(){
   <div className="hero-role">PRODUCT DESIGNER <b>×</b> PRODUCT MANAGER</div>
 </div>
 </section>
-<section className="section method shell" id="method"><video className="method-section-video" autoPlay muted loop playsInline preload="metadata" aria-hidden="true"><source src="/method-laser-flow.mp4" type="video/mp4"/></video><header className="section-head"><span>01 / WORKING METHOD</span><p>从判断到落地，建立完整产品路径。</p></header><div className="method-hero"><div className="method-map" aria-hidden="true"><div className="method-axis"/><div className="method-core"><span>PRODUCT</span><b>VALUE</b></div>{methodSteps.map(step=><div className={`method-node node-${step.no}`} key={step.no}><i>{step.no}</i><span>{step.en}</span></div>)}</div><div className="method-thesis"><p>HOW I BUILD PRODUCTS</p><h2>从模糊问题，<br/>到可落地产品。</h2><div>以产品设计为基础，连接用户需求、商业判断、设计验证与项目落地。既关注产品应该做什么，也持续推进它如何被真正实现。</div></div></div><div className="method-steps">{methodSteps.map(step=><article key={step.no} className={step.no==='01'?'method-insight-link':step.no==='02'?'method-decision-link':step.no==='03'?'method-validation-link':step.no==='04'?'method-delivery-link':undefined} role={['01','02','03','04'].includes(step.no)?'link':undefined} tabIndex={['01','02','03','04'].includes(step.no)?0:undefined} onMouseEnter={playInsightPreview} onMouseLeave={resetInsightPreview} onFocus={playInsightPreview} onBlur={resetInsightPreview} onClick={()=>step.no==='01'?window.location.assign('/insights'):step.no==='02'?window.location.assign('/decisions'):step.no==='03'?window.location.assign('/validation'):step.no==='04'&&window.location.assign('/delivery')} onKeyDown={event=>event.key==='Enter'&&(step.no==='01'?window.location.assign('/insights'):step.no==='02'?window.location.assign('/decisions'):step.no==='03'?window.location.assign('/validation'):step.no==='04'&&window.location.assign('/delivery'))}>{methodPreviewAssets[step.no]?.shots?<div className={'method-video-stack method-video-stack-'+step.no} aria-hidden="true">{methodPreviewAssets[step.no].shots.map((shot,index)=><video className={'method-card-video method-card-video-'+step.no+(index===0?' is-active':'')} key={shot.video} muted loop playsInline preload="metadata" poster={shot.poster}><source src={shot.video} type="video/mp4"/></video>)}</div>:methodPreviewAssets[step.no]&&<video className={'method-card-video method-card-video-'+step.no+' is-active'} muted loop playsInline preload="metadata" poster={methodPreviewAssets[step.no].poster} onLoadedData={event=>{if(event.currentTarget.paused&&event.currentTarget.currentTime<0.5)event.currentTarget.currentTime=0.52}} aria-hidden="true"><source src={methodPreviewAssets[step.no].video} type="video/mp4"/></video>}<div className="method-step-top"><span>{step.no}</span><i>{step.en}</i></div><h3>{step.title}</h3><p>{step.body}</p><div>{step.tags.map(tag=><b key={tag}>{tag}</b>)}</div></article>)}</div></section>
-<section className="section projects shell" id="work"><header className="section-head"><span>02 / SELECTED WORK</span><h2>精选项目</h2></header><div className="project-list">{projects.map((item,index)=><article className={`project-card ${item.theme}`} key={item.id} onMouseEnter={item.id==='01'?playProductPreview:item.id==='02'?playMedicalPreview:item.id==='03'?playIndustrialPreview:undefined} onMouseLeave={item.id==='01'?resetProductPreview:item.id==='02'?resetMedicalPreview:item.id==='03'?resetIndustrialPreview:undefined} onFocus={item.id==='01'?playProductPreview:item.id==='02'?playMedicalPreview:item.id==='03'?playIndustrialPreview:undefined} onBlur={item.id==='01'?resetProductPreview:item.id==='02'?resetMedicalPreview:item.id==='03'?resetIndustrialPreview:undefined} onClick={()=>item.id==='01'?window.location.assign('/product-management'):item.id==='02'?window.location.assign('/medical'):item.id==='03'&&window.location.assign('/industrial')}><div className="project-art" aria-hidden="true">{item.id==='01'&&<video ref={productPreviewRef} className="project-preview-video" muted playsInline loop preload="auto" onLoadedData={event=>{if(event.currentTarget.paused&&event.currentTarget.currentTime<0.5)event.currentTarget.currentTime=0.55}}><source src="/product-management-hover.mp4" type="video/mp4"/></video>}{item.id==='02'&&<video ref={medicalPreviewRef} className="project-preview-video" muted playsInline loop preload="metadata" poster="/medical-card-preview.jpg"><source src="/medical-card-preview.mp4" type="video/mp4"/></video>}{item.id==='03'&&<video ref={industrialPreviewRef} className="project-preview-video" muted playsInline loop preload="metadata" poster="/industrial-card-preview.jpg"><source src="/industrial-card-preview.mp4" type="video/mp4"/></video>}<div className="visual-core"/><div className="visual-line one"/><div className="visual-line two"/></div><div className="project-copy"><div className="project-top"><span>{item.type}</span><span>{item.displayNo}</span></div><h3>{item.title.split('\n').map((line,i)=><React.Fragment key={line}>{line}{i===0&&<br/>}</React.Fragment>)}</h3><p>{item.desc}</p><div className="project-foot"><strong>{item.metric}</strong><button onClick={()=>item.id==='01'?window.location.assign('/product-management'):item.id==='02'?window.location.assign('/medical'):item.id==='03'&&window.location.assign('/industrial')} aria-label={`查看项目 ${item.title}`}> <ArrowUpRight/></button></div></div></article>)}</div></section>
+<section className="section method shell" id="method"><LazyBackgroundVideo className="method-section-video" src="/method-laser-flow.mp4"/><header className="section-head"><span>01 / WORKING METHOD</span><p>从判断到落地，建立完整产品路径。</p></header><div className="method-hero"><div className="method-map" aria-hidden="true"><div className="method-axis"/><div className="method-core"><span>PRODUCT</span><b>VALUE</b></div>{methodSteps.map(step=><div className={`method-node node-${step.no}`} key={step.no}><i>{step.no}</i><span>{step.en}</span></div>)}</div><div className="method-thesis"><p>HOW I BUILD PRODUCTS</p><h2>从模糊问题，<br/>到可落地产品。</h2><div>以产品设计为基础，连接用户需求、商业判断、设计验证与项目落地。既关注产品应该做什么，也持续推进它如何被真正实现。</div></div></div><div className="method-steps">{methodSteps.map(step=><article key={step.no} className={step.no==='01'?'method-insight-link':step.no==='02'?'method-decision-link':step.no==='03'?'method-validation-link':step.no==='04'?'method-delivery-link':undefined} role={['01','02','03','04'].includes(step.no)?'link':undefined} tabIndex={['01','02','03','04'].includes(step.no)?0:undefined} onMouseEnter={playInsightPreview} onMouseLeave={resetInsightPreview} onFocus={playInsightPreview} onBlur={resetInsightPreview} onClick={()=>step.no==='01'?window.location.assign('/insights'):step.no==='02'?window.location.assign('/decisions'):step.no==='03'?window.location.assign('/validation'):step.no==='04'&&window.location.assign('/delivery')} onKeyDown={event=>event.key==='Enter'&&(step.no==='01'?window.location.assign('/insights'):step.no==='02'?window.location.assign('/decisions'):step.no==='03'?window.location.assign('/validation'):step.no==='04'&&window.location.assign('/delivery'))}>{methodPreviewAssets[step.no]?.shots?<div className={'method-video-stack method-video-stack-'+step.no} aria-hidden="true">{methodPreviewAssets[step.no].shots.map((shot,index)=><video className={'method-card-video method-card-video-'+step.no+(index===0?' is-active':'')} key={shot.video} muted loop playsInline preload="none" poster={shot.poster}><source src={shot.video} type="video/mp4"/></video>)}</div>:methodPreviewAssets[step.no]&&<video className={'method-card-video method-card-video-'+step.no+' is-active'} muted loop playsInline preload="metadata" poster={methodPreviewAssets[step.no].poster} onLoadedData={event=>{if(event.currentTarget.paused&&event.currentTarget.currentTime<0.5)event.currentTarget.currentTime=0.52}} aria-hidden="true"><source src={methodPreviewAssets[step.no].video} type="video/mp4"/></video>}<div className="method-step-top"><span>{step.no}</span><i>{step.en}</i></div><h3>{step.title}</h3><p>{step.body}</p><div>{step.tags.map(tag=><b key={tag}>{tag}</b>)}</div></article>)}</div></section>
+<section className="section projects shell" id="work"><header className="section-head"><span>02 / SELECTED WORK</span><h2>精选项目</h2></header><div className="project-list">{projects.map((item,index)=><article className={`project-card ${item.theme}`} key={item.id} onMouseEnter={item.id==='01'?playProductPreview:item.id==='02'?playMedicalPreview:item.id==='03'?playIndustrialPreview:undefined} onMouseLeave={item.id==='01'?resetProductPreview:item.id==='02'?resetMedicalPreview:item.id==='03'?resetIndustrialPreview:undefined} onFocus={item.id==='01'?playProductPreview:item.id==='02'?playMedicalPreview:item.id==='03'?playIndustrialPreview:undefined} onBlur={item.id==='01'?resetProductPreview:item.id==='02'?resetMedicalPreview:item.id==='03'?resetIndustrialPreview:undefined} onClick={()=>item.id==='01'?window.location.assign('/product-management'):item.id==='02'?window.location.assign('/medical'):item.id==='03'&&window.location.assign('/industrial')}><div className="project-art" aria-hidden="true">{item.id==='01'&&<video ref={productPreviewRef} className="project-preview-video" muted playsInline loop preload="none" poster="/product-management-poster.jpg" onLoadedData={event=>{if(event.currentTarget.paused&&event.currentTarget.currentTime<0.5)event.currentTarget.currentTime=0.55}}><source src="/product-management-hover.mp4" type="video/mp4"/></video>}{item.id==='02'&&<video ref={medicalPreviewRef} className="project-preview-video" muted playsInline loop preload="none" poster="/medical-card-preview.jpg"><source src="/medical-card-preview.mp4" type="video/mp4"/></video>}{item.id==='03'&&<video ref={industrialPreviewRef} className="project-preview-video" muted playsInline loop preload="none" poster="/industrial-card-preview.jpg"><source src="/industrial-card-preview.mp4" type="video/mp4"/></video>}<div className="visual-core"/><div className="visual-line one"/><div className="visual-line two"/></div><div className="project-copy"><div className="project-top"><span>{item.type}</span><span>{item.displayNo}</span></div><h3>{item.title.split('\n').map((line,i)=><React.Fragment key={line}>{line}{i===0&&<br/>}</React.Fragment>)}</h3><p>{item.desc}</p><div className="project-foot"><strong>{item.metric}</strong><button onClick={()=>item.id==='01'?window.location.assign('/product-management'):item.id==='02'?window.location.assign('/medical'):item.id==='03'&&window.location.assign('/industrial')} aria-label={`查看项目 ${item.title}`}> <ArrowUpRight/></button></div></div></article>)}</div></section>
 <section className="section strengths shell" id="strengths"><header className="section-head"><span>03 / CAPABILITIES</span><h2>思考全局，也打磨细节。</h2></header><div className="strength-grid">{strengths.map(item=><article className={`strength-card strength-${item.no} ${['01','02','03'].includes(item.no)?'is-link':''}`} key={item.no} role={['01','02','03'].includes(item.no)?'link':undefined} tabIndex={['01','02','03'].includes(item.no)?0:undefined} onClick={()=>item.no==='01'?window.location.assign('/product-definition'):item.no==='02'?window.location.assign('/industrial-design'):item.no==='03'&&window.location.assign('/ai-expression')} onKeyDown={event=>event.key==='Enter'&&(item.no==='01'?window.location.assign('/product-definition'):item.no==='02'?window.location.assign('/industrial-design'):item.no==='03'&&window.location.assign('/ai-expression'))}><div className="strength-no">{item.no}</div><div><p className="strength-en">{item.en}</p><h3>{item.title}</h3><p className="strength-body">{item.body}</p></div><div className="tags">{item.tags.map(tag=><span key={tag}>{tag}</span>)}</div></article>)}</div></section>
-<footer className="contact" id="contact"><div className="contact-inner shell"><p className="eyebrow">LET'S CREATE SOMETHING MEANINGFUL</p><h2>有好问题，<br/><span>一起聊聊。</span></h2><div className="contact-links"><a className="email-link" href={`mailto:${profile.email}`}><Mail aria-hidden="true"/>{profile.email}<ArrowUpRight/></a><a className="email-link" href={`tel:${profile.phone}`}><Phone aria-hidden="true"/>{profile.phone}<ArrowUpRight/></a></div><img className="contact-wechat" src="/wechat-jia-ziliang.jpg" alt="贾子良微信二维码"/><div className="footer-line"><Mark/><p>© 2026 JIA ZILIANG. ALL RIGHTS RESERVED.</p><a href="#top">BACK TO TOP <ArrowUpRight size={15}/></a></div></div></footer>
+<footer className="contact" id="contact"><div className="contact-inner shell"><p className="eyebrow">LET'S CREATE SOMETHING MEANINGFUL</p><h2>有好问题，<br/><span>一起聊聊。</span></h2><div className="contact-links"><a className="email-link" href={`mailto:${profile.email}`}><Mail aria-hidden="true"/>{profile.email}<ArrowUpRight/></a><a className="email-link" href={`tel:${profile.phone}`}><Phone aria-hidden="true"/>{profile.phone}<ArrowUpRight/></a></div><img className="contact-wechat" src="/wechat-jia-ziliang.jpg" alt="贾子良微信二维码" loading="lazy" decoding="async"/><div className="footer-line"><Mark/><p>© 2026 JIA ZILIANG. ALL RIGHTS RESERVED.</p><a href="#top">BACK TO TOP <ArrowUpRight size={15}/></a></div></div></footer>
 </main>{resumeOpen&&<div className="resume-modal" role="dialog" aria-modal="true" aria-label="贾子良个人简历" onClick={event=>event.target===event.currentTarget&&setResumeOpen(false)}><div className="resume-modal-bar"><span>JIA ZILIANG / RESUME</span><button type="button" onClick={()=>setResumeOpen(false)} aria-label="关闭简历"><X size={22}/> CLOSE</button></div><div className="resume-modal-stage"><img src="/resume-jia-ziliang.jpg" alt="贾子良个人简历"/></div></div>}</>}
 const currentPath = window.location.pathname.replace(/\/+$/, '')
 const isMedicalIndex = currentPath.endsWith('/medical')

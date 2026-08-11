@@ -118,7 +118,7 @@ export default function MedicalProject(){
       <header className="selector-heading medical-shell" onClick={(event)=>{if(event.target===event.currentTarget)setActiveProject(null)}} title="点击空白处收起效果图"><span>01 / SELECTED PROJECTS</span><p>选择项目，向下查看完整设计过程与渲染图</p></header>
       <div className="selector-slats medical-shell">
         {chapters.map((chapter,index)=><a className={`selector-slat ${activeProject===index?'is-active':''}`} href={`#render-project-${chapter.no}`} onClick={(event)=>openProject(event,index)} key={chapter.no}>
-          <img src={projectCovers[index]} alt=""/>
+          <img src={projectCovers[index]} alt="" loading="lazy" decoding="async"/>
           <div className="selector-shade"/>
           <div className="selector-number">{chapter.no}</div>
           <div className="selector-copy"><span>{chapter.en}</span><h2>{chapter.title}</h2><p>打开查看产品详情 <ArrowUpRight size={16}/></p></div>
@@ -135,7 +135,7 @@ export default function MedicalProject(){
         </aside>
         <div className="render-project-content" id={`render-project-${chapters[activeProject].no}`}>
           <header><span>{chapters[activeProject].no} / 04</span><p>{chapters[activeProject].en}</p><h2>{chapters[activeProject].title}</h2><div>{chapters[activeProject].intro}</div></header>
-          <div className="render-image-wall">{projectRenderImages[activeProject].map((src,index)=><figure key={src}><img src={src} alt={`${chapters[activeProject].title} 渲染图 ${index+1}`} loading={index===0?'eager':'lazy'}/><figcaption>{String(index+1).padStart(2,'0')} / {String(projectRenderImages[activeProject].length).padStart(2,'0')}</figcaption></figure>)}</div>
+          <div className="render-image-wall">{projectRenderImages[activeProject].map((src,index)=><figure key={src}><img src={src} alt={`${chapters[activeProject].title} 渲染图 ${index+1}`} loading={index===0?'eager':'lazy'} decoding="async"/><figcaption>{String(index+1).padStart(2,'0')} / {String(projectRenderImages[activeProject].length).padStart(2,'0')}</figcaption></figure>)}</div>
         </div>
       </div>
     </section>}    <footer className="medical-footer"><a href="/"><ArrowLeft/> 返回个人作品集</a><span>© 2026 JIA ZILIANG</span></footer>

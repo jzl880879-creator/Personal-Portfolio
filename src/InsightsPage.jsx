@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { ArrowLeft, ArrowUpRight } from 'lucide-react'
 import './insights.css'
+import useMediaMode from './useMediaMode.js'
 
 const chapters = [
   {
@@ -45,6 +46,7 @@ const insightHeroVideos = [
 
 export default function InsightsPage(){
   const [heroShot, setHeroShot] = useState(0)
+  const mediaMode = useMediaMode()
 
   useEffect(()=>{
     window.scrollTo(0,0)
@@ -57,13 +59,13 @@ export default function InsightsPage(){
   },[])
 
   useEffect(()=>{
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if(mediaMode !== 'full') return
     const timer = window.setInterval(
       ()=>setHeroShot(current => (current + 1) % insightHeroVideos.length),
       2200,
     )
     return () => window.clearInterval(timer)
-  },[])
+  },[mediaMode])
 
   return <main className="insight-page" id="top">
     <nav className="insight-nav insight-shell">
@@ -95,14 +97,15 @@ export default function InsightsPage(){
         </svg>
       </div>
       <div className="insight-hero-image insight-hero-motion insight-hero-media" aria-hidden="true">
-        {insightHeroVideos.map((video, index) =>
+        {insightHeroVideos.slice(0, mediaMode === 'full' ? insightHeroVideos.length : 1).map((video, index) =>
           <video
             className={index === heroShot ? 'is-active' : ''}
             autoPlay
             muted
             loop
             playsInline
-            preload={index === 0 ? 'auto' : 'metadata'}
+            preload={index === 0 ? 'metadata' : 'none'}
+            poster={index === 0 ? '/insight-hero-poster.jpg' : undefined}
             key={video}
           >
             <source src={video} type="video/mp4"/>
@@ -143,7 +146,7 @@ export default function InsightsPage(){
       {chapters.map((chapter, index) =>
         <article className={`insight-chapter insight-anchor ${index % 2 ? 'is-reverse' : ''}`} id={['context','problem','definition','priority'][index]} key={chapter.no} data-insight-reveal>
           <div className="insight-chapter-image">
-            <img src={chapter.image} alt={chapter.title}/>
+            <img src={chapter.image} alt={chapter.title} loading="lazy" decoding="async"/>
             <span>{chapter.note}</span>
           </div>
           <div className="insight-chapter-copy">

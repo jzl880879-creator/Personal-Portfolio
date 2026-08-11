@@ -338,7 +338,7 @@ export default function ProjectOverviewPage() {
 
     <section className="overview-hero">
       <div className="overview-hero-media" aria-hidden="true">
-        <video autoPlay muted loop playsInline preload="auto" poster="/project-overview/project-archive-hero-poster.jpg">
+        <video autoPlay muted loop playsInline preload="metadata" poster="/project-overview/project-archive-hero-poster.jpg">
           <source src="/project-overview/project-archive-hero.mp4" type="video/mp4" />
         </video>
       </div>
@@ -417,7 +417,7 @@ export default function ProjectOverviewPage() {
                 aria-label={hasGallery ? `查看${project.title}完整效果图` : undefined}
               >
                 <figure>
-                  <img src={project.cover} alt={`${project.title}项目封面`} loading={index < 6 ? 'eager' : 'lazy'} decoding="async" />
+                  <img src={project.cover} alt={`${project.title}项目封面`} loading={index < 2 ? 'eager' : 'lazy'} decoding="async" />
                   <div><span>{String(index + 1).padStart(2, '0')}</span><span>{project.meta}</span></div>
                 </figure>
                 <div className="overview-card-copy">
