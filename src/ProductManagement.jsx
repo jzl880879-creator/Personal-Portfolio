@@ -6,7 +6,7 @@ const slideRange = (start,end) => Array.from({length:end-start+1},(_,index)=>`/p
 
 const projects = [
   { no:'01', title:'便携式汽车充气泵', en:'PORTABLE TIRE INFLATOR', intro:'从行业规模、竞品格局、使用场景与用户痛点出发，明确性能、续航、交互与便携性的产品目标，并完成从概念语言到整机细节的设计推进。', cover:'/product-management/slides/slide-16.png', images:slideRange(10,22) },
-  { no:'02', title:'户外多功能充气泵', en:'OUTDOOR MULTIFUNCTIONAL PUMP', intro:'围绕精致露营、家庭亲子与户外轻量化需求，将充气、照明与驱蚊功能整合为一体，建立多场景产品定位、功能架构与完整设计方案。', cover:'/product-management/slides/slide-30.png', images:slideRange(25,38) },
+  { no:'02', title:'户外多功能充气泵', en:'OUTDOOR MULTIFUNCTIONAL PUMP', intro:'围绕精致露营、家庭亲子与户外轻量化需求，将充气、照明与驱蚊功能整合为一体，建立多场景产品定位、功能架构与完整设计方案。', cover:'/product-management/slides/slide-30.png', images:slideRange(25,37) },
   { no:'03', title:'智能停车牌气压表', en:'SMART PRIVACY PARKING CARD', intro:'针对传统号码牌隐私泄露、识别效率和耐用性问题，结合二维码、NFC 与墨水屏方案，构建兼顾车主隐私、沟通效率和品质感的智能产品。', cover:'/product-management/slides/slide-45.png', images:slideRange(39,50) },
   { no:'04', title:'智能停车牌充气泵', en:'MODULAR SMART TOOL SYSTEM', intro:'以模块化组合和磁吸辅助对位为核心，将显示、检测与充气功能拆分重组，探索多任务工具的组合方式、交互路径与产品系统延展性。', cover:'/product-management/slides/slide-54.png', images:slideRange(53,60) },
 ]
