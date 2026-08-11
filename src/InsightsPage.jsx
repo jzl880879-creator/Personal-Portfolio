@@ -87,6 +87,13 @@ export default function InsightsPage(){
         <p>在设计开始之前，<br/>先确认真正的问题。</p>
         <div>INSIGHT IS NOT MORE INFORMATION.<br/>IT IS A CLEARER DECISION.</div>
       </div>
+      <div className="insight-hero-geometry" aria-hidden="true">
+        <div className="insight-hero-stripe-grid"/>
+        <svg className="insight-hero-triangle" viewBox="0 0 800 700" preserveAspectRatio="xMidYMid meet">
+          <polygon points="400,38 760,650 40,650"/>
+          <polygon className="insight-hero-triangle-inner" points="400,158 650,588 150,588"/>
+        </svg>
+      </div>
       <div className="insight-hero-image insight-hero-motion insight-hero-media" aria-hidden="true">
         {insightHeroVideos.map((video, index) =>
           <video

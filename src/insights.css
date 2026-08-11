@@ -183,3 +183,60 @@ html{scroll-behavior:smooth}
 @media(max-width:560px){
   .insight-hero.insight-shell .insight-hero-motion{top:-70px}
 }
+
+/* Subtle analysis geometry: a blue triangular frame and a pale measuring grid
+   occupy the open right side without changing the hero's existing layout. */
+.insight-hero-geometry{
+  position:absolute;
+  z-index:4;
+  top:112px;
+  right:-2%;
+  bottom:108px;
+  width:min(48vw,820px);
+  overflow:hidden;
+  pointer-events:none;
+}
+.insight-hero-stripe-grid{
+  position:absolute;
+  inset:5% 0 0 8%;
+  opacity:.36;
+  clip-path:polygon(50% 0,100% 100%,0 100%);
+  background-image:
+    linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px),
+    repeating-linear-gradient(118deg,rgba(255,255,255,.032) 0 1px,transparent 1px 18px);
+  background-size:58px 58px,58px 58px,auto;
+  -webkit-mask-image:linear-gradient(115deg,transparent 2%,#000 24%,#000 72%,transparent 98%);
+  mask-image:linear-gradient(115deg,transparent 2%,#000 24%,#000 72%,transparent 98%);
+}
+.insight-hero-triangle{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  overflow:visible;
+  transform:rotate(7deg) translate3d(2%,1%,0);
+  filter:drop-shadow(0 0 28px rgba(52,157,214,.08));
+}
+.insight-hero-triangle polygon{
+  fill:rgba(41,129,186,.018);
+  stroke:rgba(64,164,222,.34);
+  stroke-width:2;
+  vector-effect:non-scaling-stroke;
+}
+.insight-hero-triangle .insight-hero-triangle-inner{
+  fill:none;
+  stroke:rgba(121,201,241,.13);
+  stroke-width:1;
+  stroke-dasharray:4 16;
+}
+@media(max-width:900px){
+  .insight-hero-geometry{right:-22%;width:68vw;opacity:.72}
+}
+@media(max-width:560px){
+  .insight-hero-geometry{top:126px;right:-42%;bottom:126px;width:105vw;opacity:.46}
+  .insight-hero-stripe-grid{background-size:42px 42px,42px 42px,auto}
+}
+@media(prefers-reduced-motion:reduce){
+  .insight-hero-triangle{transform:rotate(7deg) translate3d(2%,1%,0)}
+}
